@@ -3,11 +3,11 @@ using UnityEngine;
 
 class AudioManager : MonoBehaviour
 {
-    [SerializeField] private Sound[] sounds = default;
+    [SerializeField] private Sound[] _sounds = default;
 
     void Awake()
     {
-        foreach (Sound s in sounds)
+        foreach (Sound s in _sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -25,7 +25,7 @@ class AudioManager : MonoBehaviour
 
     public void Play(string name)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
+        Sound s = Array.Find(_sounds, sound => sound.name == name);
         s.source.Play();
     }
 }

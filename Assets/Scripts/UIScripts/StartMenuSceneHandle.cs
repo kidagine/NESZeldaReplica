@@ -1,15 +1,26 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class StartMenuSceneHandle : MonoBehaviour
 {
-    [SerializeField] private Animator pressStartAnimator;
+    [SerializeField] private Animator _pressStartAnimator = default;
+    [SerializeField] private TextMeshProUGUI _pressStartText = default;
 
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetButtonDown("Start"))
         {
-            pressStartAnimator.SetBool("FadeOut", true);
+            _pressStartAnimator.SetBool("FadeOut", true);
+        }
+        
+        if (InputChecker.Instance.GetInputState() == InputChecker.InputState.MouseKeyboard)
+        {
+            _pressStartText.text = "Keyboard";
+        }
+        else if (InputChecker.Instance.GetInputState() == InputChecker.InputState.Controller)
+        { 
+            _pressStartText.text = "Controller";
         }
     }
 }

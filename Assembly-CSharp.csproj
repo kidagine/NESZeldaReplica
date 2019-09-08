@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AudioScripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\AudioScripts\Sound.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\InputChecker.cs" />
     <Compile Include="Assets\Scripts\UIScripts\StartMenuSceneHandle.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Kid Agine/Desktop/CodeProjects/UnityProjects/ZeldaMaker/ZeldaMaker/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
@@ -82,6 +83,12 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/Kid Agine/Desktop/CodeProjects/UnityProjects/ZeldaMaker/ZeldaMaker/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>C:/Users/Kid Agine/Desktop/CodeProjects/UnityProjects/ZeldaMaker/ZeldaMaker/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>C:/Users/Kid Agine/Desktop/CodeProjects/UnityProjects/ZeldaMaker/ZeldaMaker/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

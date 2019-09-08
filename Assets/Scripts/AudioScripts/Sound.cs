@@ -7,9 +7,9 @@ public class Sound
     [HideInInspector]
     public AudioSource source;
     public AudioClip clip;
-    [Range(0f, 1f)]
+    [Range(0.0f, 1.0f)]
     public float volume;
-    [Range(.1f, 3)]
+    [Range(0.0f, 3.0f)]
     public float pitch;
     public string name;
     public bool loop;
