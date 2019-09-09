@@ -3,10 +3,23 @@ using UnityEngine;
 
 class AudioManager : MonoBehaviour
 {
+    public static AudioManager Instance { get; private set; }
+
     [SerializeField] private Sound[] _sounds = default;
+
 
     void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+        DontDestroyOnLoad(this.gameObject);
+
         foreach (Sound s in _sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -26,6 +39,9 @@ class AudioManager : MonoBehaviour
     public void Play(string name)
     {
         Sound s = Array.Find(_sounds, sound => sound.name == name);
-        s.source.Play();
+        if (!s.source.isPlaying)
+        {
+            s.source.Play();
+        }
     }
 }
