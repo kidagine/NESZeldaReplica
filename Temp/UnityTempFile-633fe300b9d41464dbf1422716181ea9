@@ -288,4 +288,4 @@
 Assets\Scripts\AudioScripts\AudioManager.cs
 Assets\Scripts\AudioScripts\Sound.cs
 Assets\Scripts\UIScripts\InputChecker.cs
-Assets\Scripts\UIScripts\StartMenuSceneHandle.cs
+Assets\Scripts\UIScripts\StartMenuSceneHandler.cs

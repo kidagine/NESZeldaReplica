@@ -18,7 +18,6 @@ class AudioManager : MonoBehaviour
         {
             Instance = this;
         }
-        DontDestroyOnLoad(this.gameObject);
 
         foreach (Sound s in _sounds)
         {
@@ -39,9 +38,6 @@ class AudioManager : MonoBehaviour
     public void Play(string name)
     {
         Sound s = Array.Find(_sounds, sound => sound.name == name);
-        if (!s.source.isPlaying)
-        {
-            s.source.Play();
-        }
+        s.source.Play();
     }
 }

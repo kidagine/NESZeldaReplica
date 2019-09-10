@@ -10,6 +10,7 @@ public class StartMenuSceneHandler : MonoBehaviour
     [SerializeField] private GameObject _makeSelect = default;
     [SerializeField] private TextMeshProUGUI _pressStartText = default;
     private bool _hasPressedStart;
+    private bool _checkInput;
 
 
     void Update()
@@ -26,14 +27,24 @@ public class StartMenuSceneHandler : MonoBehaviour
 
     private void PressStart()
     {
-        if (Input.GetAxis("Left Trigger") != 0.0f && Input.GetAxis("Right Trigger") != 0.0f || Input.GetKeyDown(KeyCode.Return))
+        if (_checkInput)
         {
-            AudioManager.Instance.Play("Selection");
-            _pressStartAnimator.SetBool("FadeOut", true);
-            _hasPressedStart = true;
-            _pressStart.SetActive(false);
-            _modeSelection.SetActive(true);
-            EventSystem.current.SetSelectedGameObject(_makeSelect);
+            if (Input.GetKeyUp(KeyCode.Return))
+            {
+                _checkInput = false;
+            }
+        }
+        else
+        {
+            if (Input.GetAxis("Left Trigger") != 0.0f && Input.GetAxis("Right Trigger") != 0.0f || Input.GetKeyDown(KeyCode.Return))
+            {
+                AudioManager.Instance.Play("Selection");
+                _pressStartAnimator.SetBool("FadeOut", true);
+                _hasPressedStart = true;
+                _pressStart.SetActive(false);
+                _modeSelection.SetActive(true);
+                EventSystem.current.SetSelectedGameObject(_makeSelect);
+            }
         }
 
         if (InputChecker.Instance.GetInputState() == InputChecker.InputState.MouseKeyboard)
@@ -62,12 +73,28 @@ public class StartMenuSceneHandler : MonoBehaviour
         }
     }
 
+    public void GetCurrentlySelectedElement(GameObject selectedElement)
+    {
+        Transform selectionBorder = selectedElement.transform.GetChild(0);
+        selectionBorder.gameObject.SetActive(true);
+    }
+
+    public void GetCurrentlyUnSelectedElement(GameObject selectedElement)
+    {
+        Transform selectionBorder = selectedElement.transform.GetChild(0);
+        selectionBorder.gameObject.SetActive(false);
+    }
+
     public void SelectGoBack()
     {
         AudioManager.Instance.Play("Selection");
         _hasPressedStart = false;
         _pressStart.SetActive(true);
         _modeSelection.SetActive(false);
+        if (Input.GetKey(KeyCode.Return))
+        {
+            _checkInput = true;
+        }
     }
 
     public void SelectMake()
