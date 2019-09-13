@@ -18,7 +18,6 @@ public class InputChecker : MonoBehaviour
         {
             Instance = this;
         }
-        DontDestroyOnLoad(this.gameObject);
     }
 
     void OnGUI()

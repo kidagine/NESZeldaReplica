@@ -376,13 +376,6 @@ MonoBehaviour:
     name: Selection
     loop: 0
     playOnAwake: 0
-  - source: {fileID: 0}
-    clip: {fileID: 8300000, guid: 231c989bda19e1047a66e244ac8fa667, type: 3}
-    volume: 1
-    pitch: 1
-    name: Slide
-    loop: 0
-    playOnAwake: 0
 --- !u!1 &132755952
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,7 +645,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Zelda Maker
+  m_Text: Level Maker
 --- !u!222 &245415013
 CanvasRenderer:
   m_ObjectHideFlags: 0
