@@ -83,8 +83,8 @@ public class StartMenuSceneHandler : MonoBehaviour
 
     public void GetCurrentlySelectedElement(GameObject selectedElement)
     {
-        Transform selectionBorder = selectedElement.transform.GetChild(0);
         AudioManager.Instance.Play("Slide");
+        Transform selectionBorder = selectedElement.transform.GetChild(0);
         selectionBorder.gameObject.SetActive(true);
     }
 

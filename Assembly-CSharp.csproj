@@ -64,6 +64,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AudioScripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\AudioScripts\Sound.cs" />
+    <Compile Include="Assets\Scripts\PlayerScripts\LinkLOZMovement.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\CreationMenu.cs" />
     <Compile Include="Assets\Scripts\UIScripts\InputChecker.cs" />
     <Compile Include="Assets\Scripts\UIScripts\StartMenuSceneHandler.cs" />
     <Reference Include="Unity.Timeline.Editor">
