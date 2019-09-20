@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 
 public class StalfosLOZ : MonoBehaviour
 {
@@ -11,9 +13,13 @@ public class StalfosLOZ : MonoBehaviour
     {
         if (other.CompareTag("PlayerAttack"))
         {
-            Vector2 difference = transform.position - other.transform.position;
-            _stalfosRigidbody.velocity = difference;
-            Damaged();
+            Vector2 direction = (transform.position - other.transform.position).normalized;
+            Vector2 strictDirection = new Vector2(direction.x * Convert.ToInt32(Mathf.Abs(direction.x) > Mathf.Abs(direction.y)), direction.y * Convert.ToInt32(Mathf.Abs(direction.y) > Mathf.Abs(direction.x)));
+            Debug.LogError(strictDirection);
+
+            _stalfosRigidbody.velocity = strictDirection * 4;
+            StartCoroutine(ResetVelocity());
+            //Damaged();
         }
     }
 
@@ -24,5 +30,11 @@ public class StalfosLOZ : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator ResetVelocity()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _stalfosRigidbody.velocity = Vector2.zero;
     }
 }
