@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LinkLOZMovement : MonoBehaviour
+public class LinkLOZMovement : MonoBehaviour  
 {
+    [SerializeField] private HeartSystem _playerUI = default;
     [SerializeField] private Animator _linkAnimator = default;
     [SerializeField] private GameObject _pfbSwordBeam = default;
     [SerializeField] private Rigidbody2D _linkRigidbody = default;
@@ -10,15 +11,22 @@ public class LinkLOZMovement : MonoBehaviour
     private Vector2 _direction;
     private Vector2 _lastDirection;
     private readonly int _moveSpeed = 5;
-    private int _maxHearts = 3;
-    private int _currentHearts = 3;
+    private int _heartContainers = 19;
+    private int _currentHearts = 8;
     private bool _isAttacking;
 
+
+    private void Start()
+    {
+        _playerUI.SetHearts(_heartContainers, _currentHearts);   
+    }
 
     void Update()
     {
         CheckPlayerDirection();
         Attack();
+        Damaged();
+        Heal();
     }
 
     private void FixedUpdate()
@@ -82,7 +90,7 @@ public class LinkLOZMovement : MonoBehaviour
             if (!_isAttacking)
             {
                 AudioManager.Instance.Play("SwordSlash(LOZ)");
-                if (_currentHearts == _maxHearts && swordBeam == null)
+                if (_currentHearts == _heartContainers * 2 && swordBeam == null)
                 {
                     Invoke("FireBeam", 0.28f);
                 }
@@ -119,6 +127,44 @@ public class LinkLOZMovement : MonoBehaviour
             swordBeamRotation = Quaternion.Euler(0, 0, 270);
         }
         swordBeam = Instantiate(_pfbSwordBeam, swordBeamPosition, swordBeamRotation);
+    }
+
+    private void Heal()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (_currentHearts < _heartContainers * 2)
+            {
+                AudioManager.Instance.Play("LinkDamaged(LOZ)");
+                _currentHearts++;
+                _playerUI.SetHearts(_heartContainers, _currentHearts);
+                if (_currentHearts <= 0)
+                {
+                    Died();
+                }
+            }
+
+        }
+    }
+
+    private void Damaged()
+    {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            AudioManager.Instance.Play("LinkDamaged(LOZ)");
+            _currentHearts--;
+            _playerUI.SetHearts(_heartContainers, _currentHearts);
+            if (_currentHearts <= 0)
+            {
+                Died();
+            }
+        }
+    }
+
+    private void Died()
+    {
+        AudioManager.Instance.Play("LinkDied(LOZ)");
+        Destroy(gameObject);
     }
 
     IEnumerator AttackCooldown()
