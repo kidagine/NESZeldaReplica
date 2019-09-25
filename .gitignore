@@ -5,6 +5,9 @@
 [Bb]uilds/
 Assets/AssetStoreTools*
 
+# Some asset tools can't be moved so need to explicitly 
+/Assets/Plugins/TextMesh Pro*
+
 # Visual Studio cache directory
 .vs/
 
