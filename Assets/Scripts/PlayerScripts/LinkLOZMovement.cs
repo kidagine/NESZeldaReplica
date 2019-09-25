@@ -10,9 +10,9 @@ public class LinkLOZMovement : MonoBehaviour
     private GameObject swordBeam;
     private Vector2 _direction;
     private Vector2 _lastDirection;
-    private readonly int _moveSpeed = 5;
-    private int _heartContainers = 19;
+    private int _moveSpeed = 5;
     private int _currentHearts = 8;
+    private int _heartContainers = 19;
     private bool _isAttacking;
 
 
@@ -129,6 +129,13 @@ public class LinkLOZMovement : MonoBehaviour
         swordBeam = Instantiate(_pfbSwordBeam, swordBeamPosition, swordBeamRotation);
     }
 
+    IEnumerator AttackCooldown()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _isAttacking = false;
+        _linkAnimator.SetBool("IsAttacking", _isAttacking);
+    }
+
     private void Heal()
     {
         if (Input.GetKeyDown(KeyCode.A))
@@ -167,10 +174,39 @@ public class LinkLOZMovement : MonoBehaviour
         Destroy(gameObject);
     }
 
-    IEnumerator AttackCooldown()
+    private void OnTriggerStay2D(Collider2D other)
     {
-        yield return new WaitForSeconds(0.5f);
-        _isAttacking = false;
-        _linkAnimator.SetBool("IsAttacking", _isAttacking);
+        if (other.gameObject.CompareTag("Interactable"))
+        {
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                IInteractable interactable = other.gameObject.GetComponent<IInteractable>();
+                interactable.Interact();
+                InteractableType interactableType = interactable.GetInteractableType();
+                Interact(interactableType);
+            }
+        }
+    }
+
+    private void Interact(InteractableType interactableType)
+    {
+        switch (interactableType)
+        {
+            case InteractableType.Chest:
+                OpenChest();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void OpenChest()
+    {
+        _linkAnimator.SetBool("IsPickingUp", true);
+        _moveSpeed = 0;
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            _linkAnimator.SetBool("IsPickingUp", false);
+        }
     }
 }
