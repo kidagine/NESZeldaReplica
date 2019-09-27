@@ -13,6 +13,7 @@ public class LinkLOZMovement : MonoBehaviour
     private int _moveSpeed = 5;
     private int _currentHearts = 8;
     private int _heartContainers = 19;
+    private bool _isPositionLocked;
     private bool _isAttacking;
 
 
@@ -27,6 +28,10 @@ public class LinkLOZMovement : MonoBehaviour
         Attack();
         Damaged();
         Heal();
+        if (_isPositionLocked)
+        {
+            LockPosition();
+        }
     }
 
     private void FixedUpdate()
@@ -174,6 +179,17 @@ public class LinkLOZMovement : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void LockPosition()
+    {
+        _moveSpeed = 0;
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            _linkAnimator.SetBool("IsPickingUp", false);
+            _isPositionLocked = false;
+            _moveSpeed = 5;
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Interactable"))
@@ -183,30 +199,38 @@ public class LinkLOZMovement : MonoBehaviour
                 IInteractable interactable = other.gameObject.GetComponent<IInteractable>();
                 interactable.Interact();
                 InteractableType interactableType = interactable.GetInteractableType();
-                Interact(interactableType);
+                Interact(interactableType, interactable);
             }
         }
     }
 
-    private void Interact(InteractableType interactableType)
+    private void Interact(InteractableType interactableType, IInteractable interactable)
     {
         switch (interactableType)
         {
             case InteractableType.Chest:
-                OpenChest();
+                StartCoroutine(OpenChest(interactable));
                 break;
             default:
                 break;
         }
     }
 
-    private void OpenChest()
+    IEnumerator OpenChest(IInteractable interactable)
     {
+        GameObject chestObject = interactable.getObject();
+        Chest chest = chestObject.GetComponent<Chest>();
+        GameObject item = chest.GetItem();
         _linkAnimator.SetBool("IsPickingUp", true);
-        _moveSpeed = 0;
-        if (Input.GetKeyDown(KeyCode.Z))
+        _linkRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        while (!Input.GetKeyDown(KeyCode.A))
         {
-            _linkAnimator.SetBool("IsPickingUp", false);
+            yield return null;
         }
+        Destroy(item);
+        _linkAnimator.SetBool("IsPickingUp", false);
+        _linkRigidbody.constraints = RigidbodyConstraints2D.None;
+        _linkRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        yield return null;
     }
 }

@@ -18,8 +18,18 @@ public class Chest : MonoBehaviour, IInteractable
         item.SetActive(true);
     }
 
+    public GameObject GetItem()
+    {
+        return gameObject.transform.GetChild(0).gameObject;
+    }
+
     public InteractableType GetInteractableType()
     {
         return InteractableType.Chest;
+    }
+
+    public GameObject getObject()
+    {
+        return gameObject;
     }
 }

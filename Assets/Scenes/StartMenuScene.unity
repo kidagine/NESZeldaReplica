@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 86836961}
   - component: {fileID: 86836960}
   m_Layer: 0
-  m_Name: BackgroundOverlay_image
+  m_Name: BackgroundOverlay_panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

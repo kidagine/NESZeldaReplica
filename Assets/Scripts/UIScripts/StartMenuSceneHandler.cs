@@ -12,6 +12,7 @@ public class StartMenuSceneHandler : MonoBehaviour
     [SerializeField] private GameObject _modeSelection = default;
     [SerializeField] private GameObject _makeSelect = default;
     [SerializeField] private TextMeshProUGUI _pressStartText = default;
+    private int _state;
     private bool _hasPressedStart;
     private bool _checkInput;
 
@@ -48,6 +49,7 @@ public class StartMenuSceneHandler : MonoBehaviour
             {
                 AudioManager.Instance.Play("Selection");
                 _pressStartAnimator.SetBool("FadeOut", true);
+                _state = 0;
                 _hasPressedStart = true;
                 _pressStart.SetActive(false);
                 _modeSelection.SetActive(true);
@@ -83,9 +85,14 @@ public class StartMenuSceneHandler : MonoBehaviour
 
     public void GetCurrentlySelectedElement(GameObject selectedElement)
     {
-        AudioManager.Instance.Play("Slide");
+        if (_state == 1)
+        {
+            Debug.Log("s");
+            AudioManager.Instance.Play("Slide");
+        }
         Transform selectionBorder = selectedElement.transform.GetChild(0);
         selectionBorder.gameObject.SetActive(true);
+        _state = 1;
     }
 
     public void GetCurrentlyUnSelectedElement(GameObject selectedElement)
