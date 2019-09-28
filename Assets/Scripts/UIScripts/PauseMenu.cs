@@ -1,36 +1,36 @@
 ﻿using UnityEngine;
 
-public class CreationMenu : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject _creationMenu = default; 
+    [SerializeField] private GameObject _pauseMenu = default;
 
 
     void Update()
     {
-        if (Input.GetButtonDown("Start"))
+        if (Input.GetButtonDown("Select"))
         {
-            if (_creationMenu.activeSelf)
+            if (_pauseMenu.activeSelf)
             {
-                PlayMode();
+                Resume();
             }
             else
             {
-                CreationMode();
+                Pause();
             }
         }
     }
 
-    private void PlayMode()
+    private void Resume()
     {
-        _creationMenu.SetActive(false);
+        _pauseMenu.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1.0f;
     }
 
-    private void CreationMode()
+    private void Pause()
     {
-        _creationMenu.SetActive(true);
+        _pauseMenu.SetActive(true);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0.0f;
