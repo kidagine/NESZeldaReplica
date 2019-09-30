@@ -35,4 +35,17 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0.0f;
     }
+
+    public void GetCurrentlySelectedElement(GameObject selectedElement)
+    {
+        AudioManager.Instance.Play("Slide");
+        GameObject selectionBorder = selectedElement.transform.GetChild(0).gameObject;
+        selectionBorder.SetActive(true);
+    }
+
+    public void GetCurrentlyUnSelectedElement(GameObject selectedElement)
+    {
+        GameObject selectionBorder = selectedElement.transform.GetChild(0).gameObject;
+        selectionBorder.SetActive(false);
+    }
 }

@@ -11,8 +11,8 @@ public class LinkLOZMovement : MonoBehaviour
     private Vector2 _direction;
     private Vector2 _lastDirection;
     private int _moveSpeed = 5;
-    private int _currentHearts = 8;
-    private int _heartContainers = 19;
+    private int _currentHearts = 6;
+    private int _heartContainers = 3;
     private bool _isPositionLocked;
     private bool _isAttacking;
 
@@ -28,10 +28,6 @@ public class LinkLOZMovement : MonoBehaviour
         Attack();
         Damaged();
         Heal();
-        if (_isPositionLocked)
-        {
-            LockPosition();
-        }
     }
 
     private void FixedUpdate()
@@ -179,17 +175,6 @@ public class LinkLOZMovement : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void LockPosition()
-    {
-        _moveSpeed = 0;
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            _linkAnimator.SetBool("IsPickingUp", false);
-            _isPositionLocked = false;
-            _moveSpeed = 5;
-        }
-    }
-
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Interactable"))
@@ -227,6 +212,7 @@ public class LinkLOZMovement : MonoBehaviour
         {
             yield return null;
         }
+        Inventory.Instance.Add(item.GetComponent<Item>().GetItemDescriptor());
         Destroy(item);
         _linkAnimator.SetBool("IsPickingUp", false);
         _linkRigidbody.constraints = RigidbodyConstraints2D.None;

@@ -33,7 +33,6 @@ public class StartMenuSceneHandler : MonoBehaviour
             SelectMode();
         }
     }
-
     private void PressStart()
     {
         if (_checkInput)
@@ -87,7 +86,6 @@ public class StartMenuSceneHandler : MonoBehaviour
     {
         if (_state == 1)
         {
-            Debug.Log("s");
             AudioManager.Instance.Play("Slide");
         }
         Transform selectionBorder = selectedElement.transform.GetChild(0);

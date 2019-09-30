@@ -3,7 +3,7 @@
 public class Chest : MonoBehaviour, IInteractable
 {
     [SerializeField] private Sprite _openedChest = default;
-    [SerializeField] private SpriteRenderer chestSpriteRenderer = default;
+    [SerializeField] private SpriteRenderer _chestSpriteRenderer = default;
 
 
     public void Interact()
@@ -13,7 +13,7 @@ public class Chest : MonoBehaviour, IInteractable
 
     private void OpenChest()
     {
-        chestSpriteRenderer.sprite = _openedChest;
+        _chestSpriteRenderer.sprite = _openedChest;
         GameObject item = gameObject.transform.GetChild(0).gameObject;
         item.SetActive(true);
     }
