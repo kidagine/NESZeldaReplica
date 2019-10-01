@@ -2,10 +2,10 @@
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] private ItemDescriptor itemDescriptor;
+    [SerializeField] private ItemDescriptor _itemDescriptor = default;
 
     public ItemDescriptor GetItemDescriptor()
     {
-        return itemDescriptor;
+        return _itemDescriptor;
     }
 }
