@@ -3,18 +3,22 @@ using System.Collections;
 
 public class LinkLOZMovement : MonoBehaviour  
 {
+    [Header("General")]
+    [SerializeField] private ItemSlot _itemSlot = default;
     [SerializeField] private HeartSystem _playerUI = default;
     [SerializeField] private Animator _linkAnimator = default;
     [SerializeField] private GameObject _pfbSwordBeam = default;
     [SerializeField] private Rigidbody2D _linkRigidbody = default;
-    private GameObject swordBeam;
+    [Header("Items")]
+    [SerializeField] private GameObject _pfbBomb = default;
+    private GameObject _swordBeam;
     private Vector2 _direction;
     private Vector2 _lastDirection;
     private int _moveSpeed = 5;
     private int _currentHearts = 6;
     private int _heartContainers = 3;
     private bool _isPositionLocked;
-    private bool _isAttacking;
+    private bool _canMove;
 
 
     private void Start()
@@ -28,6 +32,7 @@ public class LinkLOZMovement : MonoBehaviour
         Attack();
         Damaged();
         Heal();
+        UseItem();
     }
 
     private void FixedUpdate()
@@ -37,7 +42,7 @@ public class LinkLOZMovement : MonoBehaviour
 
     private void CheckPlayerDirection()
     {
-        if (!_isAttacking)
+        if (!_canMove)
         {
             if (_direction.y != 1 && _direction.y != -1)
             {
@@ -78,7 +83,7 @@ public class LinkLOZMovement : MonoBehaviour
 
     private void Movement()
     {
-        if (!_isAttacking)
+        if (!_canMove)
         {
             _linkRigidbody.MovePosition(_linkRigidbody.position + _direction * _moveSpeed * Time.fixedDeltaTime);
         }
@@ -88,53 +93,24 @@ public class LinkLOZMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!_isAttacking)
+            if (!_canMove)
             {
                 AudioManager.Instance.Play("SwordSlash(LOZ)");
-                if (_currentHearts == _heartContainers * 2 && swordBeam == null)
+                if (_currentHearts == _heartContainers * 2 && _swordBeam == null)
                 {
-                    Invoke("FireBeam", 0.28f);
+                    StartCoroutine(FireBeam());
                 }
-                _isAttacking = true;
-                _linkAnimator.SetBool("IsAttacking", _isAttacking);
-                StartCoroutine(AttackCooldown());
+                _linkAnimator.SetBool("IsAttacking", true);
+                StartCoroutine(MovementCooldown("IsAttacking", 0.5f));
             }
         }
     }
 
-    private void FireBeam()
+    IEnumerator FireBeam()
     {
+        yield return new WaitForSeconds(0.3f);
         AudioManager.Instance.Play("SwordBeam(LOZ)");
-        Vector2 swordBeamPosition;
-        Quaternion swordBeamRotation;
-        if (_lastDirection.x == 1.0)
-        {
-            swordBeamPosition = new Vector2(transform.position.x + 1.0f, transform.position.y - 0.06f);
-            swordBeamRotation = Quaternion.Euler(0, 0, 0);
-        }
-        else if (_lastDirection.x == -1.0)
-        {
-            swordBeamPosition = new Vector2(transform.position.x - 1.0f, transform.position.y - 0.12f);
-            swordBeamRotation = Quaternion.Euler(0, 0, 180);
-        }
-        else if (_lastDirection.y == 1.0)
-        {
-            swordBeamPosition = new Vector2(transform.position.x - 0.12f, transform.position.y + 1.0f);
-            swordBeamRotation = Quaternion.Euler(0, 0, 90);
-        }
-        else
-        {
-            swordBeamPosition = new Vector2(transform.position.x + 0.06f, transform.position.y - 1.0f);
-            swordBeamRotation = Quaternion.Euler(0, 0, 270);
-        }
-        swordBeam = Instantiate(_pfbSwordBeam, swordBeamPosition, swordBeamRotation);
-    }
-
-    IEnumerator AttackCooldown()
-    {
-        yield return new WaitForSeconds(0.5f);
-        _isAttacking = false;
-        _linkAnimator.SetBool("IsAttacking", _isAttacking);
+        _swordBeam = Instantiate(_pfbSwordBeam, GetPrefabPosition(), GetPrefabRotation());
     }
 
     private void Heal()
@@ -173,6 +149,47 @@ public class LinkLOZMovement : MonoBehaviour
     {
         AudioManager.Instance.Play("LinkDied(LOZ)");
         Destroy(gameObject);
+    }
+
+    private void UseItem()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            ItemDescriptor item = _itemSlot.GetItemSlot();
+            if (item != null)
+            {
+                ItemType itemType = item.itemType;
+                switch (itemType)
+                {
+                    case ItemType.Bow:
+                        FireBow();
+                        break;
+                    case ItemType.Bomb:
+                        ThrowBomb();
+                        break;
+                }
+            }
+        }
+    }
+
+    private void FireBow()
+    {
+        Debug.Log("Fire bow");
+    }
+
+    private void ThrowBomb()
+    {
+        _linkAnimator.SetBool("IsThrowing", true);
+        StartCoroutine(MovementCooldown("IsThrowing", 0.3f));
+        Instantiate(_pfbBomb, GetPrefabPosition(), Quaternion.identity);
+    }
+
+    IEnumerator MovementCooldown(string animationText, float cooldownTime)
+    {
+        _canMove = true;
+        yield return new WaitForSeconds(cooldownTime);
+        _canMove = false;
+        _linkAnimator.SetBool(animationText, false);
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -218,5 +235,33 @@ public class LinkLOZMovement : MonoBehaviour
         _linkRigidbody.constraints = RigidbodyConstraints2D.None;
         _linkRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         yield return null;
+    }
+
+    private Vector2 GetPrefabPosition()
+    {
+        Vector2 prefabPosition;
+        if (_lastDirection.x == 1.0)
+            prefabPosition = new Vector2(transform.position.x + 1.0f, transform.position.y - 0.06f);
+        else if (_lastDirection.x == -1.0)
+            prefabPosition = new Vector2(transform.position.x - 1.0f, transform.position.y - 0.12f);
+        else if (_lastDirection.y == 1.0)
+            prefabPosition = new Vector2(transform.position.x - 0.12f, transform.position.y + 1.0f);
+        else
+            prefabPosition = new Vector2(transform.position.x + 0.06f, transform.position.y - 1.0f);
+        return prefabPosition;
+    }
+
+    private Quaternion GetPrefabRotation()
+    {
+        Quaternion prefabRotation;
+        if (_lastDirection.x == 1.0)
+            prefabRotation = Quaternion.Euler(0, 0, 0);
+        else if (_lastDirection.x == -1.0)
+            prefabRotation = Quaternion.Euler(0, 0, 180);
+        else if (_lastDirection.y == 1.0)
+            prefabRotation = Quaternion.Euler(0, 0, 90);
+        else
+            prefabRotation = Quaternion.Euler(0, 0, 270);
+        return prefabRotation;
     }
 }

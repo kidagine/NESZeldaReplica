@@ -7,7 +7,7 @@ public class CreationMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Start"))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (_creationMenu.activeSelf)
             {
