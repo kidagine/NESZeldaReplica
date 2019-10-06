@@ -18,4 +18,11 @@ public class ItemSlot : MonoBehaviour
     {
         return _item;
     }
+
+    public void EmptyItemSlot()
+    {
+        _item = null;
+        _itemIcon.sprite = null;
+        _itemIcon.enabled = false;
+    }
 }

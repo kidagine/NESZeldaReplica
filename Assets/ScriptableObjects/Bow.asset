@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Bow
   m_EditorClassIdentifier: 
   itemName: Bow
+  itemType: 0
+  isConsumamble: 0
+  consumambleUses: 0
   icon: {fileID: 21300000, guid: 3e5baddb7665c234bbf4ccd3aa8f64d0, type: 3}
-  isDefaultItem: 0

@@ -12,6 +12,7 @@ public class LinkLOZMovement : MonoBehaviour
     [Header("Items")]
     [SerializeField] private GameObject _pfbBomb = default;
     private GameObject _swordBeam;
+    private GameObject _bomb;
     private Vector2 _direction;
     private Vector2 _lastDirection;
     private int _moveSpeed = 5;
@@ -165,6 +166,7 @@ public class LinkLOZMovement : MonoBehaviour
                         FireBow();
                         break;
                     case ItemType.Bomb:
+                        Inventory.Instance.UseConsumamble(item);
                         ThrowBomb();
                         break;
                 }
@@ -179,9 +181,12 @@ public class LinkLOZMovement : MonoBehaviour
 
     private void ThrowBomb()
     {
-        _linkAnimator.SetBool("IsThrowing", true);
-        StartCoroutine(MovementCooldown("IsThrowing", 0.3f));
-        Instantiate(_pfbBomb, GetPrefabPosition(), Quaternion.identity);
+        if (_bomb == null)
+        {
+            _linkAnimator.SetBool("IsThrowing", true);
+            StartCoroutine(MovementCooldown("IsThrowing", 0.12f));
+            _bomb = Instantiate(_pfbBomb, GetPrefabPosition(), Quaternion.identity);
+        }
     }
 
     IEnumerator MovementCooldown(string animationText, float cooldownTime)
@@ -190,6 +195,15 @@ public class LinkLOZMovement : MonoBehaviour
         yield return new WaitForSeconds(cooldownTime);
         _canMove = false;
         _linkAnimator.SetBool(animationText, false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Pickable"))
+        {
+            Inventory.Instance.Add(other.GetComponent<Item>().GetItemDescriptor());
+            Destroy(other.gameObject);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)

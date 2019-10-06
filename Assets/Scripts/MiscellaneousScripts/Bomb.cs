@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private GameObject _pfbBombExplosion = default;
+
+
     void Start()
     {
-        
+        StartCoroutine(Explode());    
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator Explode()
     {
-        
+        yield return new WaitForSeconds(1.0f);
+        Instantiate(_pfbBombExplosion, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

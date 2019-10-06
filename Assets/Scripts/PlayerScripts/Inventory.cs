@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour
 {
+    [SerializeField] private ItemSlot _itemSlot = default;
     [SerializeField] private GameObject _itemsInventory = default;
     public static Inventory Instance { get; private set; }
     private List<ItemDescriptor> _items = new List<ItemDescriptor>();
     private InventorySlot[] _inventorySlots;
-    private int _inventorySpace = 12;
 
 
     void Awake()
@@ -29,22 +29,62 @@ public class Inventory : MonoBehaviour
 
     public void Add(ItemDescriptor item)
     {
-        if (_items.Count >= _inventorySpace)
+        if (item.isConsumamble)
         {
-            return;
+            item.consumambleUses++;
         }
-        _items.Add(item);
-        AddToInventoryUI();
+
+        bool itemExists = CheckItemExists(item);
+        if (!itemExists)
+        {
+            _items.Add(item);
+        }
+        UpdateInventoryUI(itemExists);
     }
 
-    private void AddToInventoryUI()
+    public void UseConsumamble(ItemDescriptor item)
+    {
+        item.consumambleUses--;
+        _inventorySlots[0].IncrementItemCounter(item);
+        if (item.consumambleUses == 0)
+        {
+            _itemSlot.EmptyItemSlot();
+            _items.Remove(item);
+            UpdateInventoryUI();
+        }
+    }
+
+    private void UpdateInventoryUI(bool itemExists = false)
     {
         for (int i = 0; i < _inventorySlots.Length; i++)
         {
             if (i < _items.Count)
             {
-                _inventorySlots[i].AddItem(_items[i]);
+                if (!itemExists)
+                {
+                    _inventorySlots[i].AddItem(_items[i]);
+                }
+                else
+                {
+                    _inventorySlots[i].IncrementItemCounter(_items[i]);
+                }
+            }
+            else
+            {
+                _inventorySlots[i].ClearSlot();
             }
         }
+    }
+
+    private bool CheckItemExists(ItemDescriptor itemToAdd)
+    {
+        foreach (ItemDescriptor item in _items)
+        {
+            if (item == itemToAdd)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
