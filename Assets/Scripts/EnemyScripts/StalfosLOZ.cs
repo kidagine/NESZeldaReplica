@@ -22,7 +22,7 @@ public class StalfosLOZ : MonoBehaviour
     private void Knockback(Collider2D other)
     {
         Vector2 direction = (transform.position - other.transform.position).normalized;
-        Vector2 strictDirection = new Vector2(direction.x * Convert.ToInt32(Mathf.Abs(direction.x) > Mathf.Abs(direction.y)), direction.y * Convert.ToInt32(Mathf.Abs(direction.y) > Mathf.Abs(direction.x)));
+        Vector2 strictDirection = new Vector2(Mathf.Round(direction.x * Convert.ToInt32(Mathf.Abs(direction.x) > Mathf.Abs(direction.y))), Mathf.Round(direction.y * Convert.ToInt32(Mathf.Abs(direction.y) > Mathf.Abs(direction.x))));
 
         _stalfosRigidbody.velocity = strictDirection * _knockbackForce;
         StartCoroutine(ResetVelocity());

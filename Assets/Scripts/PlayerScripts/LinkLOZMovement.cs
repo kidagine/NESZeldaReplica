@@ -1,5 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
 using System.Collections;
+using UnityEngine;
 
 public class LinkLOZMovement : MonoBehaviour  
 {
@@ -189,6 +190,25 @@ public class LinkLOZMovement : MonoBehaviour
         }
     }
 
+    private void Push(GameObject obstacle)
+    {
+        obstacle.GetComponent<Pushable>().Push(gameObject);
+    }
+
+    private void AutomaticItemPickUp(GameObject item)
+    {
+        Inventory.Instance.Add(item.GetComponent<Item>().GetItemDescriptor());
+        Destroy(item.gameObject);
+    }
+
+    private void Interact(GameObject interactableObject)
+    {
+        IInteractable interactable = interactableObject.GetComponent<IInteractable>();
+        interactable.Interact();
+        InteractableType interactableType = interactable.GetInteractableType();
+        Interact(interactableType, interactable);
+    }
+
     IEnumerator MovementCooldown(string animationText, float cooldownTime)
     {
         _canMove = true;
@@ -197,12 +217,19 @@ public class LinkLOZMovement : MonoBehaviour
         _linkAnimator.SetBool(animationText, false);
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Pushable"))
+        {
+            Push(other.gameObject);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Pickable"))
         {
-            Inventory.Instance.Add(other.GetComponent<Item>().GetItemDescriptor());
-            Destroy(other.gameObject);
+            AutomaticItemPickUp(other.gameObject);
         }
     }
 
@@ -212,10 +239,7 @@ public class LinkLOZMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.X))
             {
-                IInteractable interactable = other.gameObject.GetComponent<IInteractable>();
-                interactable.Interact();
-                InteractableType interactableType = interactable.GetInteractableType();
-                Interact(interactableType, interactable);
+                Interact(other.gameObject);
             }
         }
     }
