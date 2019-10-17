@@ -12,8 +12,10 @@ public class LinkLOZMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D _linkRigidbody = default;
     [Header("Items")]
     [SerializeField] private GameObject _pfbBomb = default;
+    [SerializeField] private GameObject _pfbArrow = default;
     private GameObject _swordBeam;
     private GameObject _bomb;
+    private GameObject _arrow;
     private Vector2 _direction;
     private Vector2 _lastDirection;
     private int _moveSpeed = 5;
@@ -177,7 +179,12 @@ public class LinkLOZMovement : MonoBehaviour
 
     private void FireBow()
     {
-        Debug.Log("Fire bow");
+        if (_arrow == null)
+        {
+            _linkAnimator.SetBool("IsThrowing", true);
+            StartCoroutine(MovementCooldown("IsThrowing", 0.12f));
+            _arrow = Instantiate(_pfbArrow, GetPrefabPosition(), GetPrefabRotation());
+        }
     }
 
     private void ThrowBomb()
@@ -219,7 +226,7 @@ public class LinkLOZMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Pushable"))
+        if (other.gameObject.CompareTag("Pushable") && Inventory.Instance.CheckPassiveItem(ItemType.PowerBracelet))
         {
             Push(other.gameObject);
         }

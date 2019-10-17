@@ -2,14 +2,14 @@
 
 public class SwordBeam : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D swordBeamRigidbody = default;
+    [SerializeField] private Rigidbody2D _swordBeamRigidbody = default;
     [SerializeField] private GameObject _pfbSwordBeamExplosion = default;
     private readonly int speed = 70;
 
 
     void Start()
     {
-        swordBeamRigidbody.AddForce(transform.right * speed * 10);
+        _swordBeamRigidbody.AddForce(transform.right * speed * 10);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

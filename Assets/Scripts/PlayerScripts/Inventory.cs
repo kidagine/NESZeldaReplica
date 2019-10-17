@@ -87,4 +87,22 @@ public class Inventory : MonoBehaviour
         }
         return false;
     }
+
+    public bool CheckPassiveItem(ItemType itemType)
+    {
+        for (int i = 0; i < _inventorySlots.Length; i++)
+        {
+            if (i < _items.Count)
+            {
+                if (_inventorySlots[i].GetItem().isPassive)
+                {
+                    if (_inventorySlots[i].GetItem().itemType == itemType)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 }

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Pushable : MonoBehaviour
 {
-    private readonly float _knockbackForce = 1.0f;
+    private enum PushableSide { Top, Bottom, Left, Right }
+    [SerializeField] private PushableSide _pushable = default;
 
 
     public void Push(GameObject player)
@@ -12,7 +13,38 @@ public class Pushable : MonoBehaviour
         Vector2 direction = (transform.position - player.transform.position).normalized;
         Vector2 strictDirection = new Vector2(Mathf.Round(direction.x * Convert.ToInt32(Mathf.Abs(direction.x) > Mathf.Abs(direction.y))), Mathf.Round(direction.y * Convert.ToInt32(Mathf.Abs(direction.y) > Mathf.Abs(direction.x))));
 
-        StartCoroutine(PushToDirection(strictDirection));
+        CheckPushableSide(strictDirection);
+    }
+
+    private void CheckPushableSide(Vector2 pushDirection)
+    {
+        switch (_pushable)
+        {
+            case PushableSide.Top:
+                if (pushDirection.y == -1)
+                {
+                    StartCoroutine(PushToDirection(pushDirection));
+                }
+                break;
+            case PushableSide.Bottom:
+                if (pushDirection.y == 1)
+                {
+                    StartCoroutine(PushToDirection(pushDirection));
+                }
+                break;
+            case PushableSide.Left:
+                if (pushDirection.x == -1)
+                {
+                    StartCoroutine(PushToDirection(pushDirection));
+                }
+                break;
+            case PushableSide.Right:
+                if (pushDirection.x == 1)
+                {
+                    StartCoroutine(PushToDirection(pushDirection));
+                }
+                break;
+        }
     }
 
     IEnumerator PushToDirection(Vector2 pushDirection)
@@ -23,7 +55,7 @@ public class Pushable : MonoBehaviour
         while(ratio != 1.0f)
         {
             transform.position = Vector2.Lerp(originalPosition, targetPosition, ratio);
-            ratio += 0.1f;
+            ratio += 0.05f;
             yield return null;
         }
     }
