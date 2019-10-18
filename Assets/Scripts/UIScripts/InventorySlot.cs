@@ -29,6 +29,7 @@ public class InventorySlot : MonoBehaviour
     public void IncrementItemCounter(ItemDescriptor item)
     {
         _itemCounter.text = item.consumambleUses.ToString();
+        _itemSlot.IncrementItemSlotCounter(item);
     }
 
     public void ClearSlot()

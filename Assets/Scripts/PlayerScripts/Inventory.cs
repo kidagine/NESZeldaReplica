@@ -50,8 +50,8 @@ public class Inventory : MonoBehaviour
         {
             _itemSlot.EmptyItemSlot();
             _items.Remove(item);
-            UpdateInventoryUI();
         }
+        UpdateInventoryUI();
     }
 
     private void UpdateInventoryUI(bool itemExists = false)

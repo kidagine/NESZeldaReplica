@@ -162,6 +162,11 @@ public class LinkLOZMovement : MonoBehaviour
             ItemDescriptor item = _itemSlot.GetItemSlot();
             if (item != null)
             {
+                if (item.isConsumamble)
+                {
+                    Inventory.Instance.UseConsumamble(item);
+                }
+
                 ItemType itemType = item.itemType;
                 switch (itemType)
                 {
@@ -169,7 +174,6 @@ public class LinkLOZMovement : MonoBehaviour
                         FireBow();
                         break;
                     case ItemType.Bomb:
-                        Inventory.Instance.UseConsumamble(item);
                         ThrowBomb();
                         break;
                 }

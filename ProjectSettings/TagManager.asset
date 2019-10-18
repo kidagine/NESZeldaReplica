@@ -17,10 +17,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Character
+  - Obstacle
+  - Projectile
+  - Collectible
   - 
   - 
   - 

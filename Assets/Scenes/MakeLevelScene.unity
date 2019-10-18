@@ -120,113 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &5168418
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5168419}
-  - component: {fileID: 5168420}
-  - component: {fileID: 5168421}
-  m_Layer: 0
-  m_Name: RightStatue (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5168419
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5168418}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 589128047}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5168420
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5168418}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1253422281
-  m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ebcb233f8c277fb47bd1f0279667545e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!61 &5168421
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5168418}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.373}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.49}
-  m_EdgeRadius: 0
 --- !u!1 &8647099
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8647100}
   - component: {fileID: 8647101}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Marble (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 33135101}
   - component: {fileID: 33135102}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (58)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -477,7 +370,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 81
+  m_RootOrder: 78
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &33135102
 SpriteRenderer:
@@ -528,113 +421,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &40030119
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 40030120}
-  - component: {fileID: 40030121}
-  - component: {fileID: 40030122}
-  m_Layer: 0
-  m_Name: LeftStatue
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &40030120
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40030119}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5, y: -2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 589128047}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &40030121
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40030119}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1253422281
-  m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 11af79b533fcf534dab0ee2671205f0e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!61 &40030122
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40030119}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.373}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.49}
-  m_EdgeRadius: 0
 --- !u!1 &50807971
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,7 +431,7 @@ GameObject:
   m_Component:
   - component: {fileID: 50807972}
   - component: {fileID: 50807973}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Marble (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -725,7 +511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 52274328}
   - component: {fileID: 52274329}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -744,7 +530,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 34
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &52274329
 SpriteRenderer:
@@ -805,7 +591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 53969718}
   - component: {fileID: 53969719}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -824,7 +610,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 44
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &53969719
 SpriteRenderer:
@@ -885,7 +671,7 @@ GameObject:
   m_Component:
   - component: {fileID: 57062506}
   - component: {fileID: 57062507}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -904,7 +690,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 65
+  m_RootOrder: 62
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &57062507
 SpriteRenderer:
@@ -965,7 +751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 59635898}
   - component: {fileID: 59635899}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Marble (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1110,6 +896,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67887312}
   m_CullTransparentMesh: 0
+--- !u!1 &102419184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 102419185}
+  - component: {fileID: 102419186}
+  m_Layer: 9
+  m_Name: Stone (71)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &102419185
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102419184}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 589128047}
+  m_RootOrder: 100
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &102419186
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102419184}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 295248889
+  m_SortingLayer: 1
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 2a24c582f5b09f24b82c1fcb619090f0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.16, y: 0.16}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &114515684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1417,7 +1283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 137032820}
   - component: {fileID: 137032821}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (61)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1436,7 +1302,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 84
+  m_RootOrder: 81
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &137032821
 SpriteRenderer:
@@ -1497,7 +1363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 137554354}
   - component: {fileID: 137554355}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (62)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1516,7 +1382,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 85
+  m_RootOrder: 82
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &137554355
 SpriteRenderer:
@@ -1615,7 +1481,7 @@ GameObject:
   - component: {fileID: 141484397}
   - component: {fileID: 141484398}
   - component: {fileID: 141484399}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightStatue (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1634,7 +1500,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 19
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &141484398
 SpriteRenderer:
@@ -2216,6 +2082,85 @@ MonoBehaviour:
   _itemSlot: {fileID: 878028754}
   _itemCounter: {fileID: 410085297}
   _itemIcon: {fileID: 873190959}
+--- !u!1 &188714353
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 188714354}
+  - component: {fileID: 188714356}
+  - component: {fileID: 188714355}
+  m_Layer: 0
+  m_Name: ItemCounter_text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &188714354
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188714353}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 197695049}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 72, y: -70}
+  m_SizeDelta: {x: 55, y: 60}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &188714355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188714353}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: a7371f5fd54628446a123d22c29ed090, type: 3}
+    m_FontSize: 60
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 60
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &188714356
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188714353}
+  m_CullTransparentMesh: 0
 --- !u!1 &196369765
 GameObject:
   m_ObjectHideFlags: 0
@@ -2343,6 +2288,7 @@ RectTransform:
   - {fileID: 536755988}
   - {fileID: 1034945264}
   - {fileID: 1351325763}
+  - {fileID: 188714354}
   m_Father: {fileID: 878028753}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2474,7 +2420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 210402324}
   - component: {fileID: 210402325}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2493,7 +2439,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 38
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &210402325
 SpriteRenderer:
@@ -2554,7 +2500,7 @@ GameObject:
   m_Component:
   - component: {fileID: 239359663}
   - component: {fileID: 239359664}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Marble (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2634,7 +2580,7 @@ GameObject:
   m_Component:
   - component: {fileID: 245215650}
   - component: {fileID: 245215651}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (40)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2653,7 +2599,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 64
+  m_RootOrder: 61
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &245215651
 SpriteRenderer:
@@ -2891,7 +2837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 285395824}
   - component: {fileID: 285395825}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (69)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2910,7 +2856,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 92
+  m_RootOrder: 89
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &285395825
 SpriteRenderer:
@@ -2972,7 +2918,7 @@ GameObject:
   - component: {fileID: 290832572}
   - component: {fileID: 290832573}
   - component: {fileID: 290832574}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightStatue (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2991,7 +2937,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 18
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &290832573
 SpriteRenderer:
@@ -3078,7 +3024,7 @@ GameObject:
   m_Component:
   - component: {fileID: 295051388}
   - component: {fileID: 295051389}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (50)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3097,7 +3043,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 73
+  m_RootOrder: 70
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &295051389
 SpriteRenderer:
@@ -3196,7 +3142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 320223856}
   - component: {fileID: 320223857}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3215,7 +3161,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 27
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &320223857
 SpriteRenderer:
@@ -3276,7 +3222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 324745542}
   - component: {fileID: 324745543}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3295,7 +3241,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 37
+  m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &324745543
 SpriteRenderer:
@@ -3506,7 +3452,7 @@ GameObject:
   m_Component:
   - component: {fileID: 353106884}
   - component: {fileID: 353106885}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Marble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3586,7 +3532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 354492624}
   - component: {fileID: 354492623}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New Sprite (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3654,7 +3600,7 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 95
+  m_RootOrder: 92
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &357798593
 GameObject:
@@ -3741,7 +3687,7 @@ GameObject:
   m_Component:
   - component: {fileID: 359139135}
   - component: {fileID: 359139136}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3760,7 +3706,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 33
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &359139136
 SpriteRenderer:
@@ -4076,7 +4022,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400001931}
   - component: {fileID: 400001930}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New Sprite (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4144,7 +4090,7 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 98
+  m_RootOrder: 95
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &402939337
 GameObject:
@@ -4515,7 +4461,7 @@ GameObject:
   m_Component:
   - component: {fileID: 423026720}
   - component: {fileID: 423026721}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4534,7 +4480,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 51
+  m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &423026721
 SpriteRenderer:
@@ -4976,7 +4922,7 @@ GameObject:
   m_Component:
   - component: {fileID: 461860699}
   - component: {fileID: 461860700}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (70)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4995,7 +4941,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 93
+  m_RootOrder: 90
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &461860700
 SpriteRenderer:
@@ -5340,7 +5286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 491517425}
   - component: {fileID: 491517426}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (66)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5359,7 +5305,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 89
+  m_RootOrder: 86
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &491517426
 SpriteRenderer:
@@ -5420,7 +5366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 504788723}
   - component: {fileID: 504788724}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (59)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5439,7 +5385,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 82
+  m_RootOrder: 79
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &504788724
 SpriteRenderer:
@@ -5583,7 +5529,7 @@ GameObject:
   m_Component:
   - component: {fileID: 524502238}
   - component: {fileID: 524502239}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5602,7 +5548,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 46
+  m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &524502239
 SpriteRenderer:
@@ -6101,7 +6047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 571287757}
   - component: {fileID: 571287758}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6120,7 +6066,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 28
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &571287758
 SpriteRenderer:
@@ -6181,7 +6127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 582835027}
   - component: {fileID: 582835028}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Marble (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6260,7 +6206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 589128047}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UserCreated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6290,10 +6236,7 @@ Transform:
   - {fileID: 1218427122}
   - {fileID: 239359663}
   - {fileID: 2133116202}
-  - {fileID: 40030120}
   - {fileID: 1265253733}
-  - {fileID: 1169568849}
-  - {fileID: 5168419}
   - {fileID: 678125528}
   - {fileID: 1335485716}
   - {fileID: 290832572}
@@ -6378,8 +6321,10 @@ Transform:
   - {fileID: 1604500562}
   - {fileID: 400001931}
   - {fileID: 1670964121}
-  - {fileID: 1984985850}
   - {fileID: 1019439449}
+  - {fileID: 1558507165}
+  - {fileID: 2003648518}
+  - {fileID: 102419185}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6543,7 +6488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 636764643}
   - component: {fileID: 636764644}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6562,7 +6507,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 30
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &636764644
 SpriteRenderer:
@@ -6611,100 +6556,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!1 &642332606
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 642332607}
-  - component: {fileID: 642332609}
-  - component: {fileID: 642332608}
-  m_Layer: 0
-  m_Name: Bow
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &642332607
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642332606}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1984985850}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &642332608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642332606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f5eb69e86060d74b9e5d83cf82bd4ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _itemDescriptor: {fileID: 11400000, guid: 01dcfe7920f8fcf458b1762b936ff7c1, type: 2}
---- !u!212 &642332609
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642332606}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1576397809
-  m_SortingLayer: 3
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 3e5baddb7665c234bbf4ccd3aa8f64d0, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &644456331
@@ -6922,7 +6773,7 @@ GameObject:
   m_Component:
   - component: {fileID: 659747401}
   - component: {fileID: 659747402}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6941,7 +6792,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 25
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &659747402
 SpriteRenderer:
@@ -7003,7 +6854,7 @@ GameObject:
   - component: {fileID: 678125528}
   - component: {fileID: 678125529}
   - component: {fileID: 678125530}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftStatue (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7022,7 +6873,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 16
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &678125529
 SpriteRenderer:
@@ -7394,7 +7245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 762274575}
   - component: {fileID: 762274576}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7413,7 +7264,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 60
+  m_RootOrder: 57
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &762274576
 SpriteRenderer:
@@ -7478,7 +7329,7 @@ GameObject:
   - component: {fileID: 767172214}
   - component: {fileID: 767172213}
   - component: {fileID: 767172212}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7546,7 +7397,7 @@ Transform:
   m_LocalScale: {x: 6.25, y: 6.25, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 94
+  m_RootOrder: 91
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &767172212
 BoxCollider2D:
@@ -8004,7 +7855,7 @@ GameObject:
   m_Component:
   - component: {fileID: 798564039}
   - component: {fileID: 798564040}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (55)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8023,7 +7874,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 78
+  m_RootOrder: 75
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &798564040
 SpriteRenderer:
@@ -8084,7 +7935,7 @@ GameObject:
   m_Component:
   - component: {fileID: 817348125}
   - component: {fileID: 817348126}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8103,7 +7954,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 47
+  m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &817348126
 SpriteRenderer:
@@ -8166,7 +8017,7 @@ GameObject:
   - component: {fileID: 845396680}
   - component: {fileID: 845396679}
   - component: {fileID: 845396678}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bomb
   m_TagString: Pickable
   m_Icon: {fileID: 0}
@@ -8570,6 +8421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemIcon: {fileID: 536755989}
+  _itemCounter: {fileID: 188714355}
 --- !u!1 &886070670
 GameObject:
   m_ObjectHideFlags: 0
@@ -8770,7 +8622,7 @@ GameObject:
   m_Component:
   - component: {fileID: 927340103}
   - component: {fileID: 927340104}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8789,7 +8641,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 45
+  m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &927340104
 SpriteRenderer:
@@ -8850,7 +8702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 932028830}
   - component: {fileID: 932028831}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8869,7 +8721,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 59
+  m_RootOrder: 56
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &932028831
 SpriteRenderer:
@@ -8930,7 +8782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 947421979}
   - component: {fileID: 947421980}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8949,7 +8801,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 57
+  m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &947421980
 SpriteRenderer:
@@ -9010,7 +8862,7 @@ GameObject:
   m_Component:
   - component: {fileID: 950277649}
   - component: {fileID: 950277650}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (54)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9029,7 +8881,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 77
+  m_RootOrder: 74
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &950277650
 SpriteRenderer:
@@ -9165,7 +9017,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1010203798}
   - component: {fileID: 1010203799}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Marble (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9245,7 +9097,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1019439449}
   - component: {fileID: 1019439450}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Marble (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9264,7 +9116,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 101
+  m_RootOrder: 97
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1019439450
 SpriteRenderer:
@@ -9325,7 +9177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1033851655}
   - component: {fileID: 1033851654}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New Sprite (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9393,7 +9245,7 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 96
+  m_RootOrder: 93
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1034945263
 GameObject:
@@ -9685,7 +9537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1075877061}
   - component: {fileID: 1075877062}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (47)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9704,7 +9556,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 70
+  m_RootOrder: 67
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1075877062
 SpriteRenderer:
@@ -9946,7 +9798,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1155422116}
   - component: {fileID: 1155422117}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9965,7 +9817,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 41
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1155422117
 SpriteRenderer:
@@ -10016,113 +9868,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1169568848
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1169568849}
-  - component: {fileID: 1169568850}
-  - component: {fileID: 1169568851}
-  m_Layer: 0
-  m_Name: LeftStatue (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1169568849
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169568848}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 589128047}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1169568850
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169568848}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1253422281
-  m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 11af79b533fcf534dab0ee2671205f0e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.16, y: 0.16}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!61 &1169568851
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169568848}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.373}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.49}
-  m_EdgeRadius: 0
 --- !u!1 &1169879853
 GameObject:
   m_ObjectHideFlags: 0
@@ -10133,7 +9878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1169879854}
   - component: {fileID: 1169879855}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Marble (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10213,7 +9958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1192911868}
   - component: {fileID: 1192911869}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (34)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10232,7 +9977,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 58
+  m_RootOrder: 55
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1192911869
 SpriteRenderer:
@@ -10293,7 +10038,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1210896568}
   - component: {fileID: 1210896569}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (52)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10312,7 +10057,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 75
+  m_RootOrder: 72
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1210896569
 SpriteRenderer:
@@ -10373,7 +10118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1218427122}
   - component: {fileID: 1218427123}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Marble (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10607,7 +10352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1241682554}
   - component: {fileID: 1241682555}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10626,7 +10371,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 39
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1241682555
 SpriteRenderer:
@@ -10787,7 +10532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1260514918}
   - component: {fileID: 1260514919}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (46)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10806,7 +10551,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 69
+  m_RootOrder: 66
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1260514919
 SpriteRenderer:
@@ -10867,7 +10612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1261227068}
   - component: {fileID: 1261227069}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10886,7 +10631,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 50
+  m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1261227069
 SpriteRenderer:
@@ -10950,7 +10695,7 @@ GameObject:
   - component: {fileID: 1265253737}
   - component: {fileID: 1265253735}
   - component: {fileID: 1265253736}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightStatue
   m_TagString: Pushable
   m_Icon: {fileID: 0}
@@ -10969,7 +10714,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1265253734
 SpriteRenderer:
@@ -11090,7 +10835,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1267252523}
   - component: {fileID: 1267252524}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (53)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11109,7 +10854,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 76
+  m_RootOrder: 73
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1267252524
 SpriteRenderer:
@@ -11171,7 +10916,7 @@ GameObject:
   - component: {fileID: 1273470910}
   - component: {fileID: 1273470911}
   - component: {fileID: 1273470912}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11489,7 +11234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1291983591}
   - component: {fileID: 1291983592}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (39)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11508,7 +11253,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 63
+  m_RootOrder: 60
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1291983592
 SpriteRenderer:
@@ -11669,7 +11414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1298407454}
   - component: {fileID: 1298407455}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11688,7 +11433,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 52
+  m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1298407455
 SpriteRenderer:
@@ -11991,7 +11736,7 @@ GameObject:
   - component: {fileID: 1335485716}
   - component: {fileID: 1335485717}
   - component: {fileID: 1335485718}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightStatue (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12010,7 +11755,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 17
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1335485717
 SpriteRenderer:
@@ -12097,7 +11842,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1347958406}
   - component: {fileID: 1347958407}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12116,7 +11861,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 36
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1347958407
 SpriteRenderer:
@@ -12252,7 +11997,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1395985376}
   - component: {fileID: 1395985377}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (37)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12271,7 +12016,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 61
+  m_RootOrder: 58
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1395985377
 SpriteRenderer:
@@ -12333,7 +12078,7 @@ GameObject:
   - component: {fileID: 1403940658}
   - component: {fileID: 1403940659}
   - component: {fileID: 1403940660}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftStatue (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12352,7 +12097,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 22
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1403940659
 SpriteRenderer:
@@ -12554,7 +12299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1427209175}
   - component: {fileID: 1427209176}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12573,7 +12318,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 29
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1427209176
 SpriteRenderer:
@@ -12634,7 +12379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1460358559}
   - component: {fileID: 1460358560}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (45)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12653,7 +12398,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 68
+  m_RootOrder: 65
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1460358560
 SpriteRenderer:
@@ -12714,7 +12459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1460857630}
   - component: {fileID: 1460857631}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (67)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12733,7 +12478,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 90
+  m_RootOrder: 87
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1460857631
 SpriteRenderer:
@@ -12999,7 +12744,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1487129465}
   - component: {fileID: 1487129466}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (42)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13018,7 +12763,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 66
+  m_RootOrder: 63
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1487129466
 SpriteRenderer:
@@ -13450,6 +13195,86 @@ MonoBehaviour:
   _itemSlot: {fileID: 878028754}
   _itemCounter: {fileID: 1652184415}
   _itemIcon: {fileID: 1918091810}
+--- !u!1 &1558507164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1558507165}
+  - component: {fileID: 1558507166}
+  m_Layer: 9
+  m_Name: Marble (15)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1558507165
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558507164}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 589128047}
+  m_RootOrder: 98
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1558507166
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558507164}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 295248889
+  m_SortingLayer: 1
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 66e00a742dfbca449bd2e212840e616c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.16, y: 0.16}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1559279517
 GameObject:
   m_ObjectHideFlags: 0
@@ -13665,7 +13490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1576935376}
   - component: {fileID: 1576935377}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13684,7 +13509,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 42
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1576935377
 SpriteRenderer:
@@ -13745,7 +13570,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1590703219}
   - component: {fileID: 1590703220}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13764,7 +13589,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 43
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1590703220
 SpriteRenderer:
@@ -13825,7 +13650,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1600690394}
   - component: {fileID: 1600690395}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13844,7 +13669,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 48
+  m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1600690395
 SpriteRenderer:
@@ -13905,7 +13730,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1604500562}
   - component: {fileID: 1604500561}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New Sprite (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13973,7 +13798,7 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 97
+  m_RootOrder: 94
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1614844388
 GameObject:
@@ -14060,7 +13885,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1621535540}
   - component: {fileID: 1621535541}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (56)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14079,7 +13904,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 79
+  m_RootOrder: 76
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1621535541
 SpriteRenderer:
@@ -14141,7 +13966,7 @@ GameObject:
   - component: {fileID: 1622698632}
   - component: {fileID: 1622698633}
   - component: {fileID: 1622698634}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftStatue (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14160,7 +13985,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 21
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1622698633
 SpriteRenderer:
@@ -14322,7 +14147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1640925286}
   - component: {fileID: 1640925287}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14341,7 +14166,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 55
+  m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1640925287
 SpriteRenderer:
@@ -14402,7 +14227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1644706678}
   - component: {fileID: 1644706679}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Marble (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14636,7 +14461,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1670298424}
   - component: {fileID: 1670298425}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (49)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14655,7 +14480,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 72
+  m_RootOrder: 69
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1670298425
 SpriteRenderer:
@@ -14719,7 +14544,7 @@ GameObject:
   - component: {fileID: 1670964124}
   - component: {fileID: 1670964123}
   - component: {fileID: 1670964122}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Chest
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -14734,12 +14559,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670964120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 0, z: 0}
+  m_LocalPosition: {x: -2.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1273470910}
   m_Father: {fileID: 589128047}
-  m_RootOrder: 99
+  m_RootOrder: 96
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1670964122
 BoxCollider2D:
@@ -14754,7 +14579,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.7}
+  m_Offset: {x: 0, y: -0.8}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -14765,7 +14590,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.4}
+  m_Size: {x: 1, y: 0.5}
   m_EdgeRadius: 0
 --- !u!61 &1670964123
 BoxCollider2D:
@@ -14780,7 +14605,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.373}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -14791,7 +14616,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.49}
   m_EdgeRadius: 0
 --- !u!114 &1670964124
 MonoBehaviour:
@@ -14868,7 +14693,7 @@ GameObject:
   - component: {fileID: 1674840541}
   - component: {fileID: 1674840540}
   - component: {fileID: 1674840539}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bow
   m_TagString: Pickable
   m_Icon: {fileID: 0}
@@ -15062,7 +14887,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1697987758}
   - component: {fileID: 1697987759}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15081,7 +14906,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 56
+  m_RootOrder: 53
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1697987759
 SpriteRenderer:
@@ -15221,7 +15046,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1707319932}
   - component: {fileID: 1707319933}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15240,7 +15065,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 53
+  m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1707319933
 SpriteRenderer:
@@ -15681,7 +15506,7 @@ GameObject:
   - component: {fileID: 1744797603}
   - component: {fileID: 1744797606}
   - component: {fileID: 1744797605}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Link(LOZ)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -15793,7 +15618,7 @@ MonoBehaviour:
   _linkRigidbody: {fileID: 1744797603}
   _pfbBomb: {fileID: 4593116810479617105, guid: 15d7b1f6d8863cc4481650db59778f2a,
     type: 3}
-  _pfbArrow: {fileID: 3022435244173061216, guid: 260a8929e75f87d419836f5c18f79299,
+  _pfbArrow: {fileID: 8596001931678873423, guid: 260a8929e75f87d419836f5c18f79299,
     type: 3}
 --- !u!95 &1744797605
 Animator:
@@ -16039,7 +15864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1773075366}
   - component: {fileID: 1773075367}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (57)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16058,7 +15883,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 80
+  m_RootOrder: 77
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1773075367
 SpriteRenderer:
@@ -16155,7 +15980,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1802319404}
   - component: {fileID: 1802319405}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16174,7 +15999,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 32
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1802319405
 SpriteRenderer:
@@ -16318,7 +16143,7 @@ GameObject:
   - component: {fileID: 1809037009}
   - component: {fileID: 1809037007}
   - component: {fileID: 1809037004}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stalfos(LOZ)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16479,7 +16304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1815961748}
   - component: {fileID: 1815961749}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (64)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16498,7 +16323,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 87
+  m_RootOrder: 84
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1815961749
 SpriteRenderer:
@@ -16559,7 +16384,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1816074095}
   - component: {fileID: 1816074096}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16578,7 +16403,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 24
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1816074096
 SpriteRenderer:
@@ -16639,7 +16464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1830976168}
   - component: {fileID: 1830976169}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (51)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16658,7 +16483,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 74
+  m_RootOrder: 71
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1830976169
 SpriteRenderer:
@@ -16794,7 +16619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1835230074}
   - component: {fileID: 1835230075}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (65)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16813,7 +16638,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 88
+  m_RootOrder: 85
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1835230075
 SpriteRenderer:
@@ -17070,7 +16895,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1889778187}
   - component: {fileID: 1889778188}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17089,7 +16914,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 35
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1889778188
 SpriteRenderer:
@@ -17150,7 +16975,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1912137114}
   - component: {fileID: 1912137115}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17169,7 +16994,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 26
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1912137115
 SpriteRenderer:
@@ -17380,7 +17205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1918722086}
   - component: {fileID: 1918722087}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17399,7 +17224,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 31
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1918722087
 SpriteRenderer:
@@ -17461,7 +17286,7 @@ GameObject:
   - component: {fileID: 1929021181}
   - component: {fileID: 1929021182}
   - component: {fileID: 1929021183}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftStatue (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17480,7 +17305,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 23
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1929021182
 SpriteRenderer:
@@ -17567,7 +17392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1932014903}
   - component: {fileID: 1932014904}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (48)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17586,7 +17411,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 71
+  m_RootOrder: 68
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1932014904
 SpriteRenderer:
@@ -17647,7 +17472,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1932664506}
   - component: {fileID: 1932664507}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17666,7 +17491,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 40
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1932664507
 SpriteRenderer:
@@ -17728,7 +17553,7 @@ GameObject:
   - component: {fileID: 1944332296}
   - component: {fileID: 1944332297}
   - component: {fileID: 1944332298}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightStatue (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17747,7 +17572,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 20
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1944332297
 SpriteRenderer:
@@ -18004,7 +17829,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1980297545}
   - component: {fileID: 1980297546}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18023,7 +17848,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 49
+  m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1980297546
 SpriteRenderer:
@@ -18074,7 +17899,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1984985849
+--- !u!1 &2003648517
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18082,106 +17907,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1984985850}
-  - component: {fileID: 1984985854}
-  - component: {fileID: 1984985853}
-  - component: {fileID: 1984985852}
-  - component: {fileID: 1984985851}
-  m_Layer: 0
-  m_Name: Chest (1)
-  m_TagString: Interactable
+  - component: {fileID: 2003648518}
+  - component: {fileID: 2003648519}
+  m_Layer: 9
+  m_Name: Stone (43)
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1984985850
+--- !u!4 &2003648518
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984985849}
+  m_GameObject: {fileID: 2003648517}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.99, y: 0, z: 0}
+  m_LocalPosition: {x: -1.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 642332607}
+  m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 100
+  m_RootOrder: 99
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1984985851
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984985849}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.7}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.4}
-  m_EdgeRadius: 0
---- !u!61 &1984985852
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984985849}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &1984985853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984985849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf463d070f2c4f0468390c37b0d43a93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _openedChest: {fileID: 21300000, guid: 7dc11bfe2aa605e4292c2af81e529d30, type: 3}
-  _chestSpriteRenderer: {fileID: 1984985854}
---- !u!212 &1984985854
+--- !u!212 &2003648519
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984985849}
+  m_GameObject: {fileID: 2003648517}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -18210,15 +17965,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1576397809
-  m_SortingLayer: 3
+  m_SortingLayerID: 295248889
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c2199008dd4394c42992eee5afc52630, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a24c582f5b09f24b82c1fcb619090f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -18309,7 +18064,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2017788068}
   - component: {fileID: 2017788069}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18328,7 +18083,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 54
+  m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2017788069
 SpriteRenderer:
@@ -18539,7 +18294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2033339532}
   - component: {fileID: 2033339533}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (68)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18558,7 +18313,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 91
+  m_RootOrder: 88
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2033339533
 SpriteRenderer:
@@ -18619,7 +18374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2044810157}
   - component: {fileID: 2044810158}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (60)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18638,7 +18393,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 83
+  m_RootOrder: 80
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2044810158
 SpriteRenderer:
@@ -18851,7 +18606,7 @@ GameObject:
   - component: {fileID: 2083827161}
   - component: {fileID: 2083827160}
   - component: {fileID: 2083827159}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PowerBracelet
   m_TagString: Pickable
   m_Icon: {fileID: 0}
@@ -18970,7 +18725,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2094940055}
   - component: {fileID: 2094940056}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (38)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18989,7 +18744,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 62
+  m_RootOrder: 59
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2094940056
 SpriteRenderer:
@@ -19145,7 +18900,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2110667847}
   - component: {fileID: 2110667848}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (44)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19164,7 +18919,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 67
+  m_RootOrder: 64
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2110667848
 SpriteRenderer:
@@ -19225,7 +18980,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2117789647}
   - component: {fileID: 2117789648}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Marble (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19305,7 +19060,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2118178683}
   - component: {fileID: 2118178684}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stone (63)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19324,7 +19079,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 589128047}
-  m_RootOrder: 86
+  m_RootOrder: 83
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2118178684
 SpriteRenderer:
@@ -19562,7 +19317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2133116202}
   - component: {fileID: 2133116203}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Marble (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
