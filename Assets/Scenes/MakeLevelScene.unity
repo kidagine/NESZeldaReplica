@@ -1481,7 +1481,7 @@ GameObject:
   - component: {fileID: 141484397}
   - component: {fileID: 141484398}
   - component: {fileID: 141484399}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: RightStatue (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2918,7 +2918,7 @@ GameObject:
   - component: {fileID: 290832572}
   - component: {fileID: 290832573}
   - component: {fileID: 290832574}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: RightStatue (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6854,7 +6854,7 @@ GameObject:
   - component: {fileID: 678125528}
   - component: {fileID: 678125529}
   - component: {fileID: 678125530}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LeftStatue (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10695,7 +10695,7 @@ GameObject:
   - component: {fileID: 1265253737}
   - component: {fileID: 1265253735}
   - component: {fileID: 1265253736}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: RightStatue
   m_TagString: Pushable
   m_Icon: {fileID: 0}
@@ -10916,7 +10916,7 @@ GameObject:
   - component: {fileID: 1273470910}
   - component: {fileID: 1273470911}
   - component: {fileID: 1273470912}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11736,7 +11736,7 @@ GameObject:
   - component: {fileID: 1335485716}
   - component: {fileID: 1335485717}
   - component: {fileID: 1335485718}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: RightStatue (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12078,7 +12078,7 @@ GameObject:
   - component: {fileID: 1403940658}
   - component: {fileID: 1403940659}
   - component: {fileID: 1403940660}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LeftStatue (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13966,7 +13966,7 @@ GameObject:
   - component: {fileID: 1622698632}
   - component: {fileID: 1622698633}
   - component: {fileID: 1622698634}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LeftStatue (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14544,7 +14544,7 @@ GameObject:
   - component: {fileID: 1670964124}
   - component: {fileID: 1670964123}
   - component: {fileID: 1670964122}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Chest
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -17286,7 +17286,7 @@ GameObject:
   - component: {fileID: 1929021181}
   - component: {fileID: 1929021182}
   - component: {fileID: 1929021183}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: LeftStatue (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17553,7 +17553,7 @@ GameObject:
   - component: {fileID: 1944332296}
   - component: {fileID: 1944332297}
   - component: {fileID: 1944332298}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: RightStatue (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

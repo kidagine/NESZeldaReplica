@@ -4,7 +4,7 @@ public class SwordBeam : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _swordBeamRigidbody = default;
     [SerializeField] private GameObject _pfbSwordBeamExplosion = default;
-    private readonly int speed = 70;
+    private readonly int speed = 60;
 
 
     void Start()

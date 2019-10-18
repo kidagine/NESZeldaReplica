@@ -186,7 +186,7 @@ public class LinkLOZMovement : MonoBehaviour
         if (_arrow == null)
         {
             _linkAnimator.SetBool("IsThrowing", true);
-            StartCoroutine(MovementCooldown("IsThrowing", 0.12f));
+            StartCoroutine(MovementCooldown("IsThrowing", 0.1f));
             _arrow = Instantiate(_pfbArrow, GetPrefabPosition(), GetPrefabRotation());
         }
     }

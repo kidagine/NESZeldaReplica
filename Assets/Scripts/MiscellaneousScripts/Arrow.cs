@@ -4,7 +4,7 @@ public class Arrow : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _arrowRigidbody = default;
     [SerializeField] private GameObject _pfbArrowExplosion = default;
-    private readonly int speed = 70;
+    private readonly int speed = 60;
 
 
     void Start()
