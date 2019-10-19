@@ -8,6 +8,8 @@ TagManager:
   - Interactable
   - Pickable
   - Pushable
+  - EnemyAttack
+  - Enemy
   layers:
   - Default
   - TransparentFX

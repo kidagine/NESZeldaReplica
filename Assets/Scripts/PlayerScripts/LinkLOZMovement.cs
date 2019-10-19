@@ -9,6 +9,7 @@ public class LinkLOZMovement : MonoBehaviour
     [SerializeField] private HeartSystem _playerUI = default;
     [SerializeField] private Animator _linkAnimator = default;
     [SerializeField] private GameObject _pfbSwordBeam = default;
+    [SerializeField] private GameObject _shield = default;
     [SerializeField] private Rigidbody2D _linkRigidbody = default;
     [Header("Items")]
     [SerializeField] private GameObject _pfbBomb = default;
@@ -25,7 +26,7 @@ public class LinkLOZMovement : MonoBehaviour
     private bool _canMove;
 
 
-    private void Start()
+    void Start()
     {
         _playerUI.SetHearts(_heartContainers, _currentHearts);   
     }
@@ -34,12 +35,10 @@ public class LinkLOZMovement : MonoBehaviour
     {
         CheckPlayerDirection();
         Attack();
-        Damaged();
-        Heal();
         UseItem();
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         Movement();
     }
@@ -83,6 +82,8 @@ public class LinkLOZMovement : MonoBehaviour
         {
             _linkAnimator.speed = 1;
         }
+
+        _shield.transform.rotation = GetObjectRotation();
     }
 
     private void Movement()
@@ -114,7 +115,7 @@ public class LinkLOZMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         AudioManager.Instance.Play("SwordBeam(LOZ)");
-        _swordBeam = Instantiate(_pfbSwordBeam, GetPrefabPosition(), GetPrefabRotation());
+        _swordBeam = Instantiate(_pfbSwordBeam, GetObjectPosition(), GetObjectRotation());
     }
 
     private void Heal()
@@ -137,16 +138,25 @@ public class LinkLOZMovement : MonoBehaviour
 
     private void Damaged()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        AudioManager.Instance.Play("LinkDamaged(LOZ)");
+        _currentHearts--;
+        _playerUI.SetHearts(_heartContainers, _currentHearts);
+        if (_currentHearts <= 0)
         {
-            AudioManager.Instance.Play("LinkDamaged(LOZ)");
-            _currentHearts--;
-            _playerUI.SetHearts(_heartContainers, _currentHearts);
-            if (_currentHearts <= 0)
-            {
-                Died();
-            }
+            Died();
         }
+    }
+
+    private bool ShieldDeflected(GameObject player)
+    {
+        Vector2 direction = (player.transform.position - transform.position).normalized;
+        Vector2 strictDirection = new Vector2(Mathf.Round(direction.x * Convert.ToInt32(Mathf.Abs(direction.x) > Mathf.Abs(direction.y))), Mathf.Round(direction.y * Convert.ToInt32(Mathf.Abs(direction.y) > Mathf.Abs(direction.x))));
+
+        if (strictDirection == _lastDirection)
+        {
+            return true;
+        }
+        return false;
     }
 
     private void Died()
@@ -187,7 +197,7 @@ public class LinkLOZMovement : MonoBehaviour
         {
             _linkAnimator.SetBool("IsThrowing", true);
             StartCoroutine(MovementCooldown("IsThrowing", 0.1f));
-            _arrow = Instantiate(_pfbArrow, GetPrefabPosition(), GetPrefabRotation());
+            _arrow = Instantiate(_pfbArrow, GetObjectPosition(), GetObjectRotation());
         }
     }
 
@@ -197,7 +207,7 @@ public class LinkLOZMovement : MonoBehaviour
         {
             _linkAnimator.SetBool("IsThrowing", true);
             StartCoroutine(MovementCooldown("IsThrowing", 0.12f));
-            _bomb = Instantiate(_pfbBomb, GetPrefabPosition(), Quaternion.identity);
+            _bomb = Instantiate(_pfbBomb, GetObjectPosition(), Quaternion.identity);
         }
     }
 
@@ -241,6 +251,13 @@ public class LinkLOZMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Pickable"))
         {
             AutomaticItemPickUp(other.gameObject);
+        }
+        if (other.gameObject.CompareTag("EnemyAttack"))
+        {
+            if (!ShieldDeflected(other.gameObject))
+            {
+                Damaged();
+            }
         }
     }
 
@@ -286,7 +303,7 @@ public class LinkLOZMovement : MonoBehaviour
         yield return null;
     }
 
-    private Vector2 GetPrefabPosition()
+    private Vector2 GetObjectPosition()
     {
         Vector2 prefabPosition;
         if (_lastDirection.x == 1.0)
@@ -300,7 +317,7 @@ public class LinkLOZMovement : MonoBehaviour
         return prefabPosition;
     }
 
-    private Quaternion GetPrefabRotation()
+    private Quaternion GetObjectRotation()
     {
         Quaternion prefabRotation;
         if (_lastDirection.x == 1.0)
