@@ -254,7 +254,14 @@ public class LinkLOZMovement : MonoBehaviour
         }
         if (other.gameObject.CompareTag("EnemyAttack"))
         {
-            if (!ShieldDeflected(other.gameObject))
+            if (other.gameObject.layer == LayerMask.NameToLayer("Projectile"))
+            {
+                if (!ShieldDeflected(other.gameObject))
+                {
+                    Damaged();
+                }
+            }
+            else
             {
                 Damaged();
             }
