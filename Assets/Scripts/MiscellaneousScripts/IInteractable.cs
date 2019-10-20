@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public enum InteractableType { Chest }
+public enum InteractableType { Chest, Door }
 
 public interface IInteractable
 {

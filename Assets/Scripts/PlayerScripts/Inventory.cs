@@ -3,24 +3,12 @@ using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour
 {
+    [SerializeField] private LinkUI _linkUI = default;
     [SerializeField] private ItemSlot _itemSlot = default;
     [SerializeField] private GameObject _itemsInventory = default;
-    public static Inventory Instance { get; private set; }
     private List<ItemDescriptor> _items = new List<ItemDescriptor>();
     private InventorySlot[] _inventorySlots;
 
-
-    void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
 
     private void Start()
     {
@@ -34,12 +22,19 @@ public class Inventory : MonoBehaviour
             item.consumambleUses++;
         }
 
-        bool itemExists = CheckItemExists(item);
-        if (!itemExists)
+        if (item.itemType != ItemType.Key)
         {
-            _items.Add(item);
+            bool itemExists = CheckItemExists(item);
+            if (!itemExists)
+            {
+                _items.Add(item);
+            }
+            UpdateInventoryUI(itemExists);
         }
-        UpdateInventoryUI(itemExists);
+        else
+        {
+            _linkUI.KeySystem.SetKeys(item.consumambleUses);
+        }
     }
 
     public void UseConsumamble(ItemDescriptor item)

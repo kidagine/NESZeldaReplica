@@ -10,6 +10,7 @@ TagManager:
   - Pushable
   - EnemyAttack
   - Enemy
+  - Door
   layers:
   - Default
   - TransparentFX

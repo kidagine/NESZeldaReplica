@@ -5,11 +5,12 @@ using UnityEngine;
 public class LinkLOZMovement : MonoBehaviour  
 {
     [Header("General")]
+    [SerializeField] private LinkUI _linkUI = default;
+    [SerializeField] private GameObject _shield = default;
     [SerializeField] private ItemSlot _itemSlot = default;
-    [SerializeField] private HeartSystem _playerUI = default;
+    [SerializeField] private Inventory _invetory = default;
     [SerializeField] private Animator _linkAnimator = default;
     [SerializeField] private GameObject _pfbSwordBeam = default;
-    [SerializeField] private GameObject _shield = default;
     [SerializeField] private Rigidbody2D _linkRigidbody = default;
     [Header("Items")]
     [SerializeField] private GameObject _pfbBomb = default;
@@ -28,7 +29,7 @@ public class LinkLOZMovement : MonoBehaviour
 
     void Start()
     {
-        _playerUI.SetHearts(_heartContainers, _currentHearts);   
+        _linkUI.HeartSystem.SetHearts(_heartContainers, _currentHearts);
     }
 
     void Update()
@@ -126,7 +127,7 @@ public class LinkLOZMovement : MonoBehaviour
             {
                 AudioManager.Instance.Play("LinkDamaged(LOZ)");
                 _currentHearts++;
-                _playerUI.SetHearts(_heartContainers, _currentHearts);
+                _linkUI.HeartSystem.SetHearts(_heartContainers, _currentHearts);
                 if (_currentHearts <= 0)
                 {
                     Died();
@@ -140,7 +141,7 @@ public class LinkLOZMovement : MonoBehaviour
     {
         AudioManager.Instance.Play("LinkDamaged(LOZ)");
         _currentHearts--;
-        _playerUI.SetHearts(_heartContainers, _currentHearts);
+        _linkUI.HeartSystem.SetHearts(_heartContainers, _currentHearts);
         if (_currentHearts <= 0)
         {
             Died();
@@ -174,7 +175,7 @@ public class LinkLOZMovement : MonoBehaviour
             {
                 if (item.isConsumamble)
                 {
-                    Inventory.Instance.UseConsumamble(item);
+                    _invetory.UseConsumamble(item);
                 }
 
                 ItemType itemType = item.itemType;
@@ -218,7 +219,7 @@ public class LinkLOZMovement : MonoBehaviour
 
     private void AutomaticItemPickUp(GameObject item)
     {
-        Inventory.Instance.Add(item.GetComponent<Item>().GetItemDescriptor());
+        _invetory.Add(item.GetComponent<Item>().GetItemDescriptor());
         Destroy(item.gameObject);
     }
 
@@ -240,9 +241,25 @@ public class LinkLOZMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Pushable") && Inventory.Instance.CheckPassiveItem(ItemType.PowerBracelet))
+        if (other.gameObject.CompareTag("Pushable") && _invetory.CheckPassiveItem(ItemType.PowerBracelet))
         {
             Push(other.gameObject);
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Door"))
+        {
+            Door door = other.gameObject.GetComponent<Door>();
+            Debug.Log(door.DoorStatus);
+
+            if (door.DoorStatus == DoorStatus.Locked)
+            {
+                Debug.Log("aaa");
+
+                Interact(other.gameObject);
+            }
         }
     }
 
@@ -302,7 +319,7 @@ public class LinkLOZMovement : MonoBehaviour
         {
             yield return null;
         }
-        Inventory.Instance.Add(item.GetComponent<Item>().GetItemDescriptor());
+        _invetory.Add(item.GetComponent<Item>().GetItemDescriptor());
         Destroy(item);
         _linkAnimator.SetBool("IsPickingUp", false);
         _linkRigidbody.constraints = RigidbodyConstraints2D.None;
@@ -312,29 +329,29 @@ public class LinkLOZMovement : MonoBehaviour
 
     private Vector2 GetObjectPosition()
     {
-        Vector2 prefabPosition;
+        Vector2 objectPosition;
         if (_lastDirection.x == 1.0)
-            prefabPosition = new Vector2(transform.position.x + 1.0f, transform.position.y - 0.06f);
+            objectPosition = new Vector2(transform.position.x + 1.0f, transform.position.y - 0.06f);
         else if (_lastDirection.x == -1.0)
-            prefabPosition = new Vector2(transform.position.x - 1.0f, transform.position.y - 0.12f);
+            objectPosition = new Vector2(transform.position.x - 1.0f, transform.position.y - 0.12f);
         else if (_lastDirection.y == 1.0)
-            prefabPosition = new Vector2(transform.position.x - 0.12f, transform.position.y + 1.0f);
+            objectPosition = new Vector2(transform.position.x - 0.12f, transform.position.y + 1.0f);
         else
-            prefabPosition = new Vector2(transform.position.x + 0.06f, transform.position.y - 1.0f);
-        return prefabPosition;
+            objectPosition = new Vector2(transform.position.x + 0.06f, transform.position.y - 1.0f);
+        return objectPosition;
     }
 
     private Quaternion GetObjectRotation()
     {
-        Quaternion prefabRotation;
+        Quaternion objectRotation;
         if (_lastDirection.x == 1.0)
-            prefabRotation = Quaternion.Euler(0, 0, 0);
+            objectRotation = Quaternion.Euler(0, 0, 0);
         else if (_lastDirection.x == -1.0)
-            prefabRotation = Quaternion.Euler(0, 0, 180);
+            objectRotation = Quaternion.Euler(0, 0, 180);
         else if (_lastDirection.y == 1.0)
-            prefabRotation = Quaternion.Euler(0, 0, 90);
+            objectRotation = Quaternion.Euler(0, 0, 90);
         else
-            prefabRotation = Quaternion.Euler(0, 0, 270);
-        return prefabRotation;
+            objectRotation = Quaternion.Euler(0, 0, 270);
+        return objectRotation;
     }
 }

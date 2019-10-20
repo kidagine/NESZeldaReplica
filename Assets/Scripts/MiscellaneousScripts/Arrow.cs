@@ -14,7 +14,7 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.gameObject.CompareTag("Enemy"))
+        if (!other.gameObject.CompareTag("Player"))
         {
             Instantiate(_pfbArrowExplosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
