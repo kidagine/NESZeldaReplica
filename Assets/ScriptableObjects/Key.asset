@@ -16,5 +16,5 @@ MonoBehaviour:
   itemType: 3
   isConsumamble: 1
   isPassive: 0
-  consumambleUses: 1
+  consumambleUses: 0
   icon: {fileID: 21300000, guid: 5e0e49148bd669349a4a94b57609679c, type: 3}

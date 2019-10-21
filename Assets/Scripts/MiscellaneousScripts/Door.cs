@@ -32,5 +32,4 @@ public class Door : MonoBehaviour, IInteractable
         _door.sprite = _openDoor;
         _doorCollider.enabled = false;
     }
-    
 }

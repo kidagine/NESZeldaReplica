@@ -254,7 +254,7 @@ public class LinkLOZMovement : MonoBehaviour
             {
                 if (_linkUI.KeySystem.Keys != 0)
                 {
-                    _linkUI.ShowPrompt(gameObject.transform);
+                    _linkUI.ShowPrompt(gameObject);
                     if (Input.GetKeyDown(KeyCode.X))
                     {
                         _linkUI.HidePrompt();
