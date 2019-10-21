@@ -5,12 +5,14 @@ public class KeySystem : MonoBehaviour
 {
     [SerializeField] private Image[] _keys = default;
     private readonly int _maximumKeys = 5;
+    public int Keys { get; set; }
 
     public void SetKeys(int keyAmount)
     {
+        Keys = keyAmount;
         for (int i = 0; i < _keys.Length; i++)
         {
-            if (i < keyAmount)
+            if (i < Keys)
             {
                 _keys[i].enabled = true;
             }
@@ -20,4 +22,11 @@ public class KeySystem : MonoBehaviour
             }
         }
     }
+
+    public void UseKey()
+    {
+        Keys--;
+        SetKeys(Keys);
+    }
+
 }

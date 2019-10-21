@@ -83,7 +83,6 @@ public class LinkLOZMovement : MonoBehaviour
         {
             _linkAnimator.speed = 1;
         }
-
         _shield.transform.rotation = GetObjectRotation();
     }
 
@@ -133,7 +132,6 @@ public class LinkLOZMovement : MonoBehaviour
                     Died();
                 }
             }
-
         }
     }
 
@@ -148,9 +146,9 @@ public class LinkLOZMovement : MonoBehaviour
         }
     }
 
-    private bool ShieldDeflected(GameObject player)
+    private bool ShieldDeflected(GameObject projectile)
     {
-        Vector2 direction = (player.transform.position - transform.position).normalized;
+        Vector2 direction = (projectile.transform.position - transform.position).normalized;
         Vector2 strictDirection = new Vector2(Mathf.Round(direction.x * Convert.ToInt32(Mathf.Abs(direction.x) > Mathf.Abs(direction.y))), Mathf.Round(direction.y * Convert.ToInt32(Mathf.Abs(direction.y) > Mathf.Abs(direction.x))));
 
         if (strictDirection == _lastDirection)
@@ -252,13 +250,30 @@ public class LinkLOZMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Door"))
         {
             Door door = other.gameObject.GetComponent<Door>();
-            Debug.Log(door.DoorStatus);
-
             if (door.DoorStatus == DoorStatus.Locked)
             {
-                Debug.Log("aaa");
+                if (_linkUI.KeySystem.Keys != 0)
+                {
+                    _linkUI.ShowPrompt(gameObject.transform);
+                    if (Input.GetKeyDown(KeyCode.X))
+                    {
+                        _linkUI.HidePrompt();
+                        _linkUI.KeySystem.UseKey();
+                        Interact(other.gameObject);
+                    }
+                }
+            }
+        }
+    }
 
-                Interact(other.gameObject);
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Door"))
+        {
+            Door door = other.gameObject.GetComponent<Door>();
+            if (door.DoorStatus == DoorStatus.Locked)
+            {
+                _linkUI.HidePrompt();
             }
         }
     }
