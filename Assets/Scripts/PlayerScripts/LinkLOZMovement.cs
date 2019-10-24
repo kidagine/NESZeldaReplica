@@ -24,7 +24,7 @@ public class LinkLOZMovement : MonoBehaviour
     private int _currentHearts = 6;
     private int _heartContainers = 3;
     private bool _isPositionLocked;
-    private bool _canMove;
+    private bool _cantMove;
 
 
     void Start()
@@ -37,6 +37,9 @@ public class LinkLOZMovement : MonoBehaviour
         CheckPlayerDirection();
         Attack();
         UseItem();
+
+        Heal();
+        Damaged();
     }
 
     void FixedUpdate()
@@ -46,7 +49,7 @@ public class LinkLOZMovement : MonoBehaviour
 
     private void CheckPlayerDirection()
     {
-        if (!_canMove)
+        if (!_cantMove)
         {
             if (_direction.y != 1 && _direction.y != -1)
             {
@@ -88,7 +91,7 @@ public class LinkLOZMovement : MonoBehaviour
 
     private void Movement()
     {
-        if (!_canMove)
+        if (!_cantMove)
         {
             _linkRigidbody.MovePosition(_linkRigidbody.position + _direction * _moveSpeed * Time.fixedDeltaTime);
         }
@@ -98,7 +101,7 @@ public class LinkLOZMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!_canMove)
+            if (!_cantMove)
             {
                 AudioManager.Instance.Play("SwordSlash(LOZ)");
                 if (_currentHearts == _heartContainers * 2 && _swordBeam == null)
@@ -120,29 +123,28 @@ public class LinkLOZMovement : MonoBehaviour
 
     private void Heal()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             if (_currentHearts < _heartContainers * 2)
             {
                 AudioManager.Instance.Play("LinkDamaged(LOZ)");
                 _currentHearts++;
                 _linkUI.HeartSystem.SetHearts(_heartContainers, _currentHearts);
-                if (_currentHearts <= 0)
-                {
-                    Died();
-                }
             }
         }
     }
 
     private void Damaged()
     {
-        AudioManager.Instance.Play("LinkDamaged(LOZ)");
-        _currentHearts--;
-        _linkUI.HeartSystem.SetHearts(_heartContainers, _currentHearts);
-        if (_currentHearts <= 0)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            Died();
+            AudioManager.Instance.Play("LinkDamaged(LOZ)");
+            _currentHearts--;
+            _linkUI.HeartSystem.SetHearts(_heartContainers, _currentHearts);
+            if (_currentHearts <= 0)
+            {
+                Died();
+            }
         }
     }
 
@@ -160,8 +162,9 @@ public class LinkLOZMovement : MonoBehaviour
 
     private void Died()
     {
+        _cantMove = true;
         AudioManager.Instance.Play("LinkDied(LOZ)");
-        Destroy(gameObject);
+        _linkAnimator.SetBool("IsDead", true);
     }
 
     private void UseItem()
@@ -231,9 +234,9 @@ public class LinkLOZMovement : MonoBehaviour
 
     IEnumerator MovementCooldown(string animationText, float cooldownTime)
     {
-        _canMove = true;
+        _cantMove = true;
         yield return new WaitForSeconds(cooldownTime);
-        _canMove = false;
+        _cantMove = false;
         _linkAnimator.SetBool(animationText, false);
     }
 
