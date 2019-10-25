@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 803692835247484875}
   - component: {fileID: 1118901795691613681}
   - component: {fileID: 8609751142844882847}
+  - component: {fileID: -8559754913039490298}
   - component: {fileID: 9215456430642064260}
   - component: {fileID: 7424565393516578106}
   m_Layer: 10
@@ -98,6 +99,20 @@ MonoBehaviour:
   _arrowRigidbody: {fileID: 9215456430642064260}
   _pfbArrowExplosion: {fileID: 2101551611415551058, guid: 8fcc3201d05b68f49a8523e4743f59f3,
     type: 3}
+--- !u!114 &-8559754913039490298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8596001931678873423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ddc60844817b4f45b56b4a99adb44d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackType: 2
+  _invetory: {fileID: 0}
 --- !u!50 &9215456430642064260
 Rigidbody2D:
   serializedVersion: 4

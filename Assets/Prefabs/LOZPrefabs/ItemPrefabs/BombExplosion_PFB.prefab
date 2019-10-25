@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8236553995585636550}
   - component: {fileID: 8236553995585636545}
   - component: {fileID: 6614168510459361135}
+  - component: {fileID: -3814593437465289127}
   - component: {fileID: 4175492247670218461}
   - component: {fileID: 7132005028055589636}
   m_Layer: 0
@@ -96,6 +97,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDestroy: 0.6
+--- !u!114 &-3814593437465289127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8236553995585636544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ddc60844817b4f45b56b4a99adb44d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackType: 3
+  _invetory: {fileID: 0}
 --- !u!95 &4175492247670218461
 Animator:
   serializedVersion: 3

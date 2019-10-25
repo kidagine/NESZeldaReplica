@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public enum ItemType { Bow, Bomb, PowerBracelet, Key }
+public enum ItemType { Bow, Bomb, PowerBracelet, Key, Sword, WhiteSword, MagicalSword }
 
 [CreateAssetMenu(fileName = "Item", menuName = "Inventory/Item")]
 public class ItemDescriptor : ScriptableObject

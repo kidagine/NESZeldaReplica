@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class StalfosLOZ : MonoBehaviour
+public class StalfosLOZ : MonoBehaviour, IEnemy
 {
     [SerializeField] private GameObject _pfbEnemyExplosion = default;
     [SerializeField] private Rigidbody2D _stalfosRigidbody = default;
@@ -10,12 +10,14 @@ public class StalfosLOZ : MonoBehaviour
     private int _health = 2;
 
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void Damage(GameObject player, int attackDamage)
     {
-        if (other.CompareTag("PlayerAttack"))
+        AudioManager.Instance.Play("EnemyDamaged(LOZ)");
+        Knockback(player);
+        _health = _health - attackDamage;
+        if (_health <= 0)
         {
-            Damaged();
-            Knockback(other.gameObject);
+            Died();
         }
     }
 
@@ -26,16 +28,6 @@ public class StalfosLOZ : MonoBehaviour
 
         _stalfosRigidbody.velocity = strictDirection * _knockbackForce;
         StartCoroutine(ResetVelocity());
-    }
-
-    private void Damaged()
-    {
-        AudioManager.Instance.Play("EnemyDamaged(LOZ)");
-        _health--;
-        if (_health <= 0)
-        {
-            Died();
-        }
     }
 
     private void Died()

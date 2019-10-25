@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6683175958408569078}
   - component: {fileID: 5444416409822435520}
   - component: {fileID: 5024652352967092309}
+  - component: {fileID: 91076865071774013}
   - component: {fileID: 5024652352967092308}
   - component: {fileID: 5024652352967092311}
   - component: {fileID: 8670684455836050912}
@@ -99,6 +100,20 @@ MonoBehaviour:
   _swordBeamRigidbody: {fileID: 5024652352967092308}
   _pfbSwordBeamExplosion: {fileID: 8636798908836089069, guid: 4c9519c7499347d4cb13179e1b6ec7de,
     type: 3}
+--- !u!114 &91076865071774013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5024652352967092310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ddc60844817b4f45b56b4a99adb44d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackType: 1
+  _invetory: {fileID: 0}
 --- !u!50 &5024652352967092308
 Rigidbody2D:
   serializedVersion: 4

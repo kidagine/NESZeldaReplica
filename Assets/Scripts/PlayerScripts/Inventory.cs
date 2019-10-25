@@ -6,6 +6,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private LinkUI _linkUI = default;
     [SerializeField] private ItemSlot _itemSlot = default;
     [SerializeField] private GameObject _itemsInventory = default;
+    [SerializeField] private GameObject _sword = default;
     private List<ItemDescriptor> _items = new List<ItemDescriptor>();
     private InventorySlot[] _inventorySlots;
 
@@ -17,13 +18,10 @@ public class Inventory : MonoBehaviour
 
     public void Add(ItemDescriptor item)
     {
-        if (item.isConsumamble)
+        if (item.itemType == ItemType.Sword)
         {
-            item.consumambleUses++;
-        }
-
-        if (item.itemType != ItemType.Key)
-        {
+            SpriteRenderer swordSpriteRenderer = _sword.GetComponent<SpriteRenderer>();
+            swordSpriteRenderer.sprite = item.icon;
             bool itemExists = CheckItemExists(item);
             if (!itemExists)
             {
@@ -33,7 +31,24 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            _linkUI.KeySystem.SetKeys(item.consumambleUses);
+            if (item.isConsumamble)
+            {
+                item.consumambleUses++;
+            }
+
+            if (item.itemType != ItemType.Key)
+            {
+                bool itemExists = CheckItemExists(item);
+                if (!itemExists)
+                {
+                    _items.Add(item);
+                }
+                UpdateInventoryUI(itemExists);
+            }
+            else
+            {
+                _linkUI.KeySystem.SetKeys(item.consumambleUses);
+            }
         }
     }
 
