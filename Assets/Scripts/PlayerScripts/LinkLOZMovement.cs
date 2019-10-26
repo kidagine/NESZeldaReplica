@@ -14,9 +14,11 @@ public class LinkLOZMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D _linkRigidbody = default;
     [Header("Items")]
     [SerializeField] private GameObject _pfbBomb = default;
+    [SerializeField] private GameObject _pfbBoomerang = default;
     [SerializeField] private GameObject _pfbArrow = default;
     private GameObject _swordBeam;
     private GameObject _bomb;
+    private GameObject _boomerang;
     private GameObject _arrow;
     private Vector2 _direction;
     private Vector2 _lastDirection;
@@ -40,6 +42,7 @@ public class LinkLOZMovement : MonoBehaviour
 
         Heal();
         Damaged();
+        ThrowBoomerang();
     }
 
     void FixedUpdate()
@@ -188,6 +191,9 @@ public class LinkLOZMovement : MonoBehaviour
                     case ItemType.Bomb:
                         ThrowBomb();
                         break;
+                    case ItemType.Boomerang:
+                        ThrowBoomerang();
+                        break;
                 }
             }
         }
@@ -211,6 +217,24 @@ public class LinkLOZMovement : MonoBehaviour
             StartCoroutine(MovementCooldown("IsThrowing", 0.12f));
             _bomb = Instantiate(_pfbBomb, GetObjectPosition(), Quaternion.identity);
         }
+    }
+
+    private void ThrowBoomerang()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            _linkAnimator.SetBool("IsThrowing", true);
+            StartCoroutine(MovementCooldown("IsThrowing", 0.1f));
+            _boomerang = Instantiate(_pfbBoomerang, GetObjectPosition(), GetObjectRotation());
+            _boomerang.GetComponent<Boomerang>().SetTarget(gameObject);
+        }
+    }
+
+    public void CatchBoomerang(GameObject boomerang)
+    {
+        _linkAnimator.SetBool("IsThrowing", true);
+        StartCoroutine(MovementCooldown("IsThrowing", 0.1f));
+        Destroy(boomerang);
     }
 
     private void Push(GameObject obstacle)

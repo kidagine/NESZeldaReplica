@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class LinkAnimationEvents : MonoBehaviour
 {
-    [SerializeField] private Animator _fadeInOutAnimator;
+    [SerializeField] private Animator _fadeInOutAnimator = default;
 
     public void RestartEvent()
     {

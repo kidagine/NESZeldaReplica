@@ -2,7 +2,7 @@
 
 public class PlayerAttack : MonoBehaviour
 {
-    private enum AttackType { Sword, SwordBeam, Arrow, Bomb }
+    private enum AttackType { Sword, SwordBeam, Arrow, Bomb, Boomerang }
     [SerializeField] private AttackType _attackType = default;
     [SerializeField] private Inventory _invetory = default;
 
@@ -18,6 +18,9 @@ public class PlayerAttack : MonoBehaviour
                     SwordAttack(enemy);
                     break;
                 case AttackType.SwordBeam:
+                    enemy.Damage(gameObject, 1);
+                    break;
+                case AttackType.Boomerang:
                     enemy.Damage(gameObject, 1);
                     break;
                 case AttackType.Arrow:
