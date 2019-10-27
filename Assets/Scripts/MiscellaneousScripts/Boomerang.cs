@@ -6,7 +6,7 @@ public class Boomerang : MonoBehaviour
     [SerializeField] private Rigidbody2D _boomerangRigidbody = default;
     [SerializeField] private GameObject _pfbImpactExplosion = default;
     private readonly int _throwSpeed = 40;
-    private readonly int _returnSpeed = 10;
+    private readonly int _returnSpeed = 8;
     private GameObject _target;
     private Vector2 _direction;
     private bool _isReturning;
@@ -43,7 +43,6 @@ public class Boomerang : MonoBehaviour
             {
                 _boomerangRigidbody.velocity = Vector2.Lerp(startVelocity, targetVelocity, ratio);
                 ratio += 0.03f;
-                Debug.Log(ratio);
                 yield return null;
             }
             else
@@ -65,6 +64,7 @@ public class Boomerang : MonoBehaviour
         else
         {
             Instantiate(_pfbImpactExplosion, transform.position, Quaternion.identity);
+            _boomerangRigidbody.velocity = (_target.transform.position - transform.position).normalized * _returnSpeed;
         }
     }
 }

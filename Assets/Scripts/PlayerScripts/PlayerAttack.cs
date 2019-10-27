@@ -17,10 +17,10 @@ public class PlayerAttack : MonoBehaviour
                 case AttackType.Sword:
                     SwordAttack(enemy);
                     break;
-                case AttackType.SwordBeam:
-                    enemy.Damage(gameObject, 1);
-                    break;
                 case AttackType.Boomerang:
+                    enemy.Stun();
+                    break;
+                case AttackType.SwordBeam:
                     enemy.Damage(gameObject, 1);
                     break;
                 case AttackType.Arrow:

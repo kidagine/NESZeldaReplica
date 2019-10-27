@@ -14,7 +14,7 @@ public class StalfosLOZ : MonoBehaviour, IEnemy
     {
         AudioManager.Instance.Play("EnemyDamaged(LOZ)");
         Knockback(player);
-        _health = _health - attackDamage;
+        _health -= attackDamage;
         if (_health <= 0)
         {
             Died();
@@ -28,6 +28,18 @@ public class StalfosLOZ : MonoBehaviour, IEnemy
 
         _stalfosRigidbody.velocity = strictDirection * _knockbackForce;
         StartCoroutine(ResetVelocity());
+    }
+
+    public void Stun()
+    {
+        StartCoroutine(StunTimer());
+    }
+
+    IEnumerator StunTimer()
+    {
+        _stalfosRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        yield return new WaitForSeconds(3.0f);
+        _stalfosRigidbody.constraints = RigidbodyConstraints2D.None;
     }
 
     private void Died()

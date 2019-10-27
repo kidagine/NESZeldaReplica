@@ -42,7 +42,6 @@ public class LinkLOZMovement : MonoBehaviour
 
         Heal();
         Damaged();
-        ThrowBoomerang();
     }
 
     void FixedUpdate()
@@ -221,7 +220,7 @@ public class LinkLOZMovement : MonoBehaviour
 
     private void ThrowBoomerang()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (_boomerang == null)
         {
             _linkAnimator.SetBool("IsThrowing", true);
             StartCoroutine(MovementCooldown("IsThrowing", 0.1f));
