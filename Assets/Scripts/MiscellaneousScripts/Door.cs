@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public enum DoorStatus { Open, Closed, Locked }
 
@@ -11,6 +12,15 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField] private SpriteRenderer _door = default;
     [SerializeField] private BoxCollider2D _doorCollider = default;
     public DoorStatus DoorStatus { get { return _doorStatus; } private set { _doorStatus = value; } }
+
+
+    void Start()
+    {
+        if (_doorStatus == DoorStatus.Open)
+        {
+            _doorCollider.enabled = false;
+        }
+    }
 
     public InteractableType GetInteractableType()
     {
@@ -31,5 +41,15 @@ public class Door : MonoBehaviour, IInteractable
     {
         _door.sprite = _openDoor;
         _doorCollider.enabled = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Vector2 direction = (other.transform.position - transform.position).normalized;
+            Vector2 strictDirection = new Vector2(Mathf.Round(direction.x * Convert.ToInt32(Mathf.Abs(direction.x) > Mathf.Abs(direction.y))), Mathf.Round(direction.y * Convert.ToInt32(Mathf.Abs(direction.y) > Mathf.Abs(direction.x))));
+            Camera2D.Instance.RoomTransition(strictDirection);
+        }
     }
 }

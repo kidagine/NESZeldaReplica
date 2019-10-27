@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Key
   m_EditorClassIdentifier: 
   itemName: Key
-  itemType: 3
+  itemType: 4
   isConsumamble: 1
   isPassive: 0
-  consumambleUses: 0
+  consumambleUses: 2
   icon: {fileID: 21300000, guid: 5e0e49148bd669349a4a94b57609679c, type: 3}
