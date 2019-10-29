@@ -1,9 +1,11 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Camera2D : MonoBehaviour
 {
     public static Camera2D Instance { get; private set; }
+    private Room _currentRoom;
 
 
     void Awake()
@@ -18,73 +20,72 @@ public class Camera2D : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void SetCurrentRoom(Room currentRoom)
     {
-        CheckIfVisible();
+        _currentRoom = currentRoom;
     }
 
-    private void Update()
+    public void RoomTransition(DoorPosition doorPosition, GameObject player)
     {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            CheckIfVisible();
-        }
+        StartCoroutine(RoomTransitionTimer(doorPosition, player));
     }
 
-    private void CheckIfVisible()
+    IEnumerator RoomTransitionTimer(DoorPosition doorPosition, GameObject player)
     {
-        GameObject[] allObjects = FindObjectsOfType<GameObject>();
-        foreach (GameObject go in allObjects)
-        {
-            if (go.gameObject.CompareTag("Door"))
-            {
-                if (go.gameObject.GetComponent<SpriteRenderer>().isVisible == false)
-                {
-                    go.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-                }
-                else
-                {
-                    go.gameObject.GetComponent<BoxCollider2D>().enabled = true;
-                }
-            }
-        }        
-    }
-
-    public void RoomTransition(Vector2 direction)
-    {
-        StartCoroutine(RoomTransitionTimer(direction));
-    }
-
-    IEnumerator RoomTransitionTimer(Vector2 direction)
-    {
+        bool hasTransitioned = false;
         float ratio = 0.0f;
         Vector3 startingPosition = transform.position;
-        Vector3 targetPosition = GetTransitionPosition(direction);
-        while (ratio <= 1.0f)
+        Vector3 targetPosition = GetTransitionPosition(doorPosition);
+        while (!hasTransitioned)
         {
-            transform.position = Vector3.Lerp(startingPosition, targetPosition, ratio);
-            ratio += 0.01f;
-            yield return null;
+            if (ratio <= 1.0f)
+            {
+                transform.position = Vector3.Lerp(startingPosition, targetPosition, ratio);
+                ratio += 0.01f;
+                yield return null;
+            }
+            else
+            {
+                PositionPlayer(player);
+                SpawnEnemies();
+                hasTransitioned = true;
+            }
         }
     }
 
-    private Vector3 GetTransitionPosition(Vector2 direction)
+    private Vector3 GetTransitionPosition(DoorPosition doorPosition)
     {
-        if (direction.x == 1.0f)
+        Vector3 transitionPosition = new Vector3();
+        switch (doorPosition)
         {
-            return new Vector3(transform.position.x + 16, transform.position.y, transform.position.z);
+            case DoorPosition.Top:
+                transitionPosition = new Vector3(transform.position.x, transform.position.y - 11, transform.position.z);
+                break;
+            case DoorPosition.Bottom:
+                transitionPosition = new Vector3(transform.position.x, transform.position.y + 11, transform.position.z);
+                break;
+            case DoorPosition.Left:
+                transitionPosition = new Vector3(transform.position.x + 16, transform.position.y, transform.position.z);
+                break;
+            case DoorPosition.Right:
+                transitionPosition = new Vector3(transform.position.x - 16, transform.position.y, transform.position.z);
+                break;
         }
-        else if (direction.x == -1.0f)
+        return transitionPosition;
+    }
+
+    private void PositionPlayer(GameObject player)
+    {
+        player.SetActive(true);
+        player.GetComponent<LinkAnimationEvents>().WalkToRoom();
+    }
+
+    private void SpawnEnemies()
+    {
+        List<GameObject> enemies = _currentRoom.GetEnemies();
+        foreach (GameObject enemy in enemies)
         {
-            return new Vector3(transform.position.x - 16, transform.position.y, transform.position.z);
-        }
-        else if (direction.y == 1.0f)
-        {
-            return new Vector3(transform.position.x, transform.position.y + 11, transform.position.z);
-        }
-        else
-        {
-            return new Vector3(transform.position.x, transform.position.y - 11, transform.position.z);
+            enemy.GetComponent<IEnemy>().Spawn();
         }
     }
 }

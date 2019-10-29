@@ -18,7 +18,7 @@ public class Inventory : MonoBehaviour
 
     public void Add(ItemDescriptor item)
     {
-        if (item.itemType == ItemType.Sword)
+        if (item.itemType == ItemType.WhiteSword || item.itemType == ItemType.MagicalSword)
         {
             SpriteRenderer swordSpriteRenderer = _sword.GetComponent<SpriteRenderer>();
             swordSpriteRenderer.sprite = item.icon;

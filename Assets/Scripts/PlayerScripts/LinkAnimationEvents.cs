@@ -5,6 +5,14 @@ using UnityEngine.SceneManagement;
 public class LinkAnimationEvents : MonoBehaviour
 {
     [SerializeField] private Animator _fadeInOutAnimator = default;
+    [SerializeField] private Animator _linkAnimation = default;
+
+
+    public void WalkToRoom()
+    {
+        //_linkAnimation.enabled = true;
+        //_linkAnimation.SetTrigger("WalkToRoom");
+    }
 
     public void RestartEvent()
     {

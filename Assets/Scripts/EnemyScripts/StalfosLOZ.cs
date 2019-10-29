@@ -5,6 +5,7 @@ using UnityEngine;
 public class StalfosLOZ : MonoBehaviour, IEnemy
 {
     [SerializeField] private GameObject _pfbEnemyExplosion = default;
+    [SerializeField] private GameObject _pfbEnemySpawnExplosion = default;
     [SerializeField] private Rigidbody2D _stalfosRigidbody = default;
     private readonly int _knockbackForce = 10;
     private int _health = 2;
@@ -53,5 +54,23 @@ public class StalfosLOZ : MonoBehaviour, IEnemy
     {
         yield return new WaitForSeconds(0.4f);
         _stalfosRigidbody.velocity = Vector2.zero;
+    }
+
+    public void Spawn()
+    {
+        StartCoroutine(SpawnTimer());
+    }
+
+    IEnumerator SpawnTimer()
+    {
+        Instantiate(_pfbEnemySpawnExplosion, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.13f);
+        GetComponent<SpriteRenderer>().enabled = true;
+        yield return null;
+    }
+
+    public void Hide()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 }

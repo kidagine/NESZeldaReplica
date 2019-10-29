@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _arrowRigidbody: {fileID: 9215456430642064260}
-  _pfbImpactExplosion: {fileID: 6204827498344231287, guid: 33312837f284fb040b087e2739da20da,
+  _pfbImpactExplosion: {fileID: 2101551611415551058, guid: 8fcc3201d05b68f49a8523e4743f59f3,
     type: 3}
 --- !u!114 &-8559754913039490298
 MonoBehaviour:

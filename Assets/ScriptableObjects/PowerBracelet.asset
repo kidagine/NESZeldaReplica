@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PowerBracelet
   m_EditorClassIdentifier: 
   itemName: PowerBracelet
-  itemType: 2
+  itemType: 3
   isConsumamble: 0
   isPassive: 1
   consumambleUses: 0

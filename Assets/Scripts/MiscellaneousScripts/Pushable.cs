@@ -7,6 +7,7 @@ public class Pushable : MonoBehaviour
     private enum PushableSide { Top, Bottom, Left, Right }
     [SerializeField] private PushableSide _pushable = default;
     [SerializeField] private GameObject _linkedObject = default;
+    private bool pushedObject;
 
     public void Push(GameObject player)
     {
@@ -49,7 +50,6 @@ public class Pushable : MonoBehaviour
 
     IEnumerator PushToDirection(Vector2 pushDirection)
     {
-        bool pushedObject = false;
         float ratio = 0.0f;
         Vector2 originalPosition = transform.position;
         Vector3 targetPosition = originalPosition + pushDirection;
