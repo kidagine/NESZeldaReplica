@@ -25,8 +25,13 @@ public class LinkLOZMovement : MonoBehaviour
     private int _moveSpeed = 5;
     private int _currentHearts = 6;
     private int _heartContainers = 3;
-    private bool _isPositionLocked;
-    private bool _cantMove;
+    public bool _cantMove;
+
+
+    public GameObject REMOVETHIS()
+    {
+        return gameObject;
+    }
 
 
     void Start()

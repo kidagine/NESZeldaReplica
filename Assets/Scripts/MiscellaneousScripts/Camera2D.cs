@@ -46,7 +46,7 @@ public class Camera2D : MonoBehaviour
             }
             else
             {
-                PositionPlayer(player);
+                PlayerEnterRoom(player, doorPosition);
                 SpawnEnemies();
                 hasTransitioned = true;
             }
@@ -58,11 +58,11 @@ public class Camera2D : MonoBehaviour
         Vector3 transitionPosition = new Vector3();
         switch (doorPosition)
         {
-            case DoorPosition.Top:
-                transitionPosition = new Vector3(transform.position.x, transform.position.y - 11, transform.position.z);
-                break;
             case DoorPosition.Bottom:
                 transitionPosition = new Vector3(transform.position.x, transform.position.y + 11, transform.position.z);
+                break;
+            case DoorPosition.Top:
+                transitionPosition = new Vector3(transform.position.x, transform.position.y - 11, transform.position.z);
                 break;
             case DoorPosition.Left:
                 transitionPosition = new Vector3(transform.position.x + 16, transform.position.y, transform.position.z);
@@ -74,10 +74,26 @@ public class Camera2D : MonoBehaviour
         return transitionPosition;
     }
 
-    private void PositionPlayer(GameObject player)
+    private void PlayerEnterRoom(GameObject player, DoorPosition doorPosition)
     {
         player.SetActive(true);
-        player.GetComponent<LinkAnimationEvents>().WalkToRoom();
+        Vector2 playerDirection = Vector2.zero;
+        switch (doorPosition)
+        {
+            case DoorPosition.Bottom:
+                playerDirection = new Vector2(0, 1);
+                break;
+            case DoorPosition.Top:
+                playerDirection = new Vector2(0, -1);
+                break;
+            case DoorPosition.Left:
+                playerDirection = new Vector2(1, 0);
+                break;
+            case DoorPosition.Right:
+                playerDirection = new Vector2(-1, 0);
+                break;
+        }
+        player.transform.GetChild(0).GetComponent<LinkAnimationEvents>().WalkToRoom(playerDirection);
     }
 
     private void SpawnEnemies()

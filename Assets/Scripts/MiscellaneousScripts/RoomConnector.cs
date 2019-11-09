@@ -49,13 +49,13 @@ public class RoomConnector : MonoBehaviour
         foreach (GameObject doorObject in _doors)
         {
             Door door = doorObject.GetComponent<Door>();
-            if (!((int)strictDirection.x == 1 && door.DoorPosition == DoorPosition.Left))
+            if (!((int)strictDirection.y == 1 && door.DoorPosition == DoorPosition.Bottom))
             {
-                if (!((int)strictDirection.x == -1 && door.DoorPosition == DoorPosition.Right))
+                if (!((int)strictDirection.y == -1 && door.DoorPosition == DoorPosition.Top))
                 {
-                    if (!((int)strictDirection.y == -1 && door.DoorPosition == DoorPosition.Top))
+                    if (!((int)strictDirection.x == 1 && door.DoorPosition == DoorPosition.Left))
                     {
-                        if (!((int)strictDirection.y == 1 && door.DoorPosition == DoorPosition.Bottom))
+                        if (!((int)strictDirection.x == -1 && door.DoorPosition == DoorPosition.Right))
                         {
                             return doorObject;
                         }
