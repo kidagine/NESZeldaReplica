@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private ItemSlot _itemSlot = default;
     [SerializeField] private GameObject _itemsInventory = default;
     [SerializeField] private GameObject _sword = default;
+    [SerializeField] private GameObject _link = default;
     private List<ItemDescriptor> _items = new List<ItemDescriptor>();
     private InventorySlot[] _inventorySlots;
 
@@ -29,8 +30,25 @@ public class Inventory : MonoBehaviour
             }
             UpdateInventoryUI(itemExists);
         }
-        else
+        else if (item.itemType == ItemType.BlueRing || item.itemType == ItemType.RedRing)
         {
+            if (item.itemType == ItemType.RedRing)
+            {
+                Camera.main.GetComponent<LinkPaletteSwap>().SetArmor(ArmorType.Red);
+            }
+            else if (!CheckPassiveItem(ItemType.RedRing))
+            {
+                Camera.main.GetComponent<LinkPaletteSwap>().SetArmor(ArmorType.Blue);
+            }
+            bool itemExists = CheckItemExists(item);
+            if (!itemExists)
+            {
+                _items.Add(item);
+            }
+            UpdateInventoryUI(itemExists);
+        }
+        else
+                {
             if (item.isConsumamble)
             {
                 item.consumambleUses++;

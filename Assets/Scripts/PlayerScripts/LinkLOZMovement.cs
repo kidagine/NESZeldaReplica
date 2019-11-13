@@ -46,7 +46,7 @@ public class LinkLOZMovement : MonoBehaviour
         UseItem();
 
         Heal();
-        Damaged();
+        Damaged(4);
     }
 
     void FixedUpdate()
@@ -141,12 +141,23 @@ public class LinkLOZMovement : MonoBehaviour
         }
     }
 
-    private void Damaged()
+    private void Damaged(int attackDamage)
     {
         if (Input.GetKeyDown(KeyCode.E))
-        {
+        {   
+            if (_invetory.CheckPassiveItem(ItemType.RedRing))
+            {
+                _currentHearts -= attackDamage / 2;
+            }
+            else if (_invetory.CheckPassiveItem(ItemType.BlueRing))
+            {
+                _currentHearts -= attackDamage / 4;
+            }
+            else
+            {
+                _currentHearts -= attackDamage;
+            }
             AudioManager.Instance.Play("LinkDamaged(LOZ)");
-            _currentHearts--;
             _linkUI.HeartSystem.SetHearts(_heartContainers, _currentHearts);
             if (_currentHearts <= 0)
             {
@@ -248,8 +259,16 @@ public class LinkLOZMovement : MonoBehaviour
 
     private void AutomaticItemPickUp(GameObject item)
     {
-        _invetory.Add(item.GetComponent<Item>().GetItemDescriptor());
-        Destroy(item.gameObject);
+        ItemDescriptor itemDescriptor = item.GetComponent<Item>().GetItemDescriptor();
+        if (itemDescriptor.isPassive)
+        {
+            StartCoroutine(PickupAnimation(item));
+        }
+        else
+        {
+            _invetory.Add(itemDescriptor);
+            Destroy(item.gameObject);
+        }
     }
 
     private void Interact(GameObject interactableObject)
@@ -321,12 +340,12 @@ public class LinkLOZMovement : MonoBehaviour
             {
                 if (!ShieldDeflected(other.gameObject))
                 {
-                    Damaged();
+                    Damaged(4);
                 }
             }
             else
             {
-                Damaged();
+                Damaged(4);
             }
         }
     }
@@ -359,6 +378,22 @@ public class LinkLOZMovement : MonoBehaviour
         GameObject chestObject = interactable.getObject();
         Chest chest = chestObject.GetComponent<Chest>();
         GameObject item = chest.GetItem();
+        _linkAnimator.SetBool("IsPickingUp", true);
+        _linkRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        while (!Input.GetKeyDown(KeyCode.A))
+        {
+            yield return null;
+        }   
+        _invetory.Add(item.GetComponent<Item>().GetItemDescriptor());
+        Destroy(item);
+        _linkAnimator.SetBool("IsPickingUp", false);
+        _linkRigidbody.constraints = RigidbodyConstraints2D.None;
+        _linkRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        yield return null;
+    }
+
+    IEnumerator PickupAnimation(GameObject item)
+    {
         _linkAnimator.SetBool("IsPickingUp", true);
         _linkRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
         while (!Input.GetKeyDown(KeyCode.A))
