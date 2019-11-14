@@ -22,9 +22,10 @@ public class LinkLOZMovement : MonoBehaviour
     private GameObject _arrow;
     private Vector2 _direction;
     private Vector2 _lastDirection;
-    private int _moveSpeed = 5;
+    private readonly int _moveSpeed = 5;
+    private readonly int _knockbackForce = 10;
+    private readonly int _heartContainers = 3;
     private int _currentHearts = 6;
-    private int _heartContainers = 3;
     public bool _cantMove;
 
 
@@ -46,7 +47,6 @@ public class LinkLOZMovement : MonoBehaviour
         UseItem();
 
         Heal();
-        Damaged(4);
     }
 
     void FixedUpdate()
@@ -141,28 +141,18 @@ public class LinkLOZMovement : MonoBehaviour
         }
     }
 
-    private void Damaged(int attackDamage)
+    public void Damage(int attackDamage, GameObject attackObject)
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {   
-            if (_invetory.CheckPassiveItem(ItemType.RedRing))
+        if (attackObject.layer == LayerMask.NameToLayer("Projectile"))
+        {
+            if (!ShieldDeflected(attackObject))
             {
-                _currentHearts -= attackDamage / 2;
+                InflictDamage(attackDamage, attackObject);
             }
-            else if (_invetory.CheckPassiveItem(ItemType.BlueRing))
-            {
-                _currentHearts -= attackDamage / 4;
-            }
-            else
-            {
-                _currentHearts -= attackDamage;
-            }
-            AudioManager.Instance.Play("LinkDamaged(LOZ)");
-            _linkUI.HeartSystem.SetHearts(_heartContainers, _currentHearts);
-            if (_currentHearts <= 0)
-            {
-                Died();
-            }
+        }
+        else
+        {
+            InflictDamage(attackDamage, attackObject);
         }
     }
 
@@ -178,9 +168,54 @@ public class LinkLOZMovement : MonoBehaviour
         return false;
     }
 
+    private void InflictDamage(int attackDamage, GameObject attackObject)
+    {
+        Camera.main.GetComponent<LinkPaletteSwap>().StartBlinking();
+        if (_invetory.CheckPassiveItem(ItemType.RedRing))
+        {
+            _currentHearts -= attackDamage / 2;
+        }
+        else if (_invetory.CheckPassiveItem(ItemType.BlueRing))
+        {
+            _currentHearts -= attackDamage / 4;
+        }
+        else
+        {
+            _currentHearts -= attackDamage;
+        }
+        AudioManager.Instance.Play("LinkDamaged(LOZ)");
+        _linkUI.HeartSystem.SetHearts(_heartContainers, _currentHearts);
+
+        if (_currentHearts <= 0)
+        {
+            Died();
+        }
+        else
+        {
+            KnockBack(attackObject);
+        }
+    }
+
+    private void KnockBack(GameObject attackObject)
+    {
+        _cantMove = true;
+        Vector2 direction = (transform.position - attackObject.transform.position).normalized;
+        Vector2 strictDirection = new Vector2(Mathf.Round(direction.x * Convert.ToInt32(Mathf.Abs(direction.x) > Mathf.Abs(direction.y))), Mathf.Round(direction.y * Convert.ToInt32(Mathf.Abs(direction.y) > Mathf.Abs(direction.x))));
+        _linkRigidbody.velocity = strictDirection * _knockbackForce;
+        StartCoroutine(ResetVelocity());
+    }
+
+    IEnumerator ResetVelocity()
+    {
+        yield return new WaitForSeconds(0.4f);
+        _cantMove = false;
+        _linkRigidbody.velocity = Vector2.zero;
+    }
+
     private void Died()
     {
         _cantMove = true;
+        _linkRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
         AudioManager.Instance.Play("LinkDied(LOZ)");
         _linkAnimator.SetBool("IsDead", true);
     }
@@ -333,20 +368,6 @@ public class LinkLOZMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Pickable"))
         {
             AutomaticItemPickUp(other.gameObject);
-        }
-        if (other.gameObject.CompareTag("EnemyAttack"))
-        {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Projectile"))
-            {
-                if (!ShieldDeflected(other.gameObject))
-                {
-                    Damaged(4);
-                }
-            }
-            else
-            {
-                Damaged(4);
-            }
         }
     }
 

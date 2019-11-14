@@ -8,6 +8,7 @@ public class StalfosLOZ : MonoBehaviour, IEnemy
     [SerializeField] private GameObject _pfbEnemySpawnExplosion = default;
     [SerializeField] private Rigidbody2D _stalfosRigidbody = default;
     private readonly int _knockbackForce = 10;
+    private readonly int _attackDamage = 1;
     private int _health = 2;
 
 
@@ -72,5 +73,14 @@ public class StalfosLOZ : MonoBehaviour, IEnemy
     public void Hide()
     {
         GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            LinkLOZMovement link = other.gameObject.GetComponent<LinkLOZMovement>();
+            link.Damage(_attackDamage, gameObject);
+        }
     }
 }

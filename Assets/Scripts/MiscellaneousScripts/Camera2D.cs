@@ -6,7 +6,7 @@ public class Camera2D : MonoBehaviour
 {
     public static Camera2D Instance { get; private set; }
     private Room _currentRoom;
-
+    public GameObject test;
 
     void Awake()
     {
@@ -18,6 +18,7 @@ public class Camera2D : MonoBehaviour
         {
             Instance = this;
         }
+        transform.position = new Vector3(test.transform.position.x, test.transform.position.y, transform.position.z);
     }
 
     public void SetCurrentRoom(Room currentRoom)
