@@ -7,7 +7,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetButtonDown("Select"))
         {
             if (_pauseMenu.activeSelf)
             {

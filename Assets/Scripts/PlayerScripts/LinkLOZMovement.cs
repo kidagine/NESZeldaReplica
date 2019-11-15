@@ -45,8 +45,6 @@ public class LinkLOZMovement : MonoBehaviour
         CheckPlayerDirection();
         Attack();
         UseItem();
-
-        Heal();
     }
 
     void FixedUpdate()
@@ -106,7 +104,7 @@ public class LinkLOZMovement : MonoBehaviour
 
     private void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("B"))
         {
             if (!_cantMove)
             {
@@ -130,13 +128,17 @@ public class LinkLOZMovement : MonoBehaviour
 
     private void Heal()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (_currentHearts < _heartContainers * 2)
         {
-            if (_currentHearts < _heartContainers * 2)
+            AudioManager.Instance.Play("LinkDamaged(LOZ)");
+            _currentHearts++;
+            _linkUI.HeartSystem.SetHearts(_heartContainers, _currentHearts);
+        }
+        if (AudioManager.Instance.IsPlaying("LinkLowHealth(LOZ)"))
+        {
+            if (_currentHearts >= 2)
             {
-                AudioManager.Instance.Play("LinkDamaged(LOZ)");
-                _currentHearts++;
-                _linkUI.HeartSystem.SetHearts(_heartContainers, _currentHearts);
+                AudioManager.Instance.Stop("LinkLowHealth(LOZ)");
             }
         }
     }
@@ -210,19 +212,23 @@ public class LinkLOZMovement : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         _cantMove = false;
         _linkRigidbody.velocity = Vector2.zero;
+        if (_currentHearts <= 2)
+        {
+            AudioManager.Instance.Play("LinkLowHealth(LOZ)");
+        }
     }
 
     private void Died()
     {
+        AudioManager.Instance.Play("LinkDied(LOZ)");
         _cantMove = true;
         _linkRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
-        AudioManager.Instance.Play("LinkDied(LOZ)");
         _linkAnimator.SetBool("IsDead", true);
     }
 
     private void UseItem()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetButtonDown("X") || Input.GetButtonDown("Y"))
         {
             ItemDescriptor item = _itemSlot.GetItemSlot();
             if (item != null)
@@ -253,6 +259,7 @@ public class LinkLOZMovement : MonoBehaviour
     {
         if (_arrow == null)
         {
+            AudioManager.Instance.Play("Arrow(LOZ)");
             _linkAnimator.SetBool("IsThrowing", true);
             StartCoroutine(MovementCooldown("IsThrowing", 0.1f));
             _arrow = Instantiate(_pfbArrow, GetObjectPosition(), GetObjectRotation());
@@ -263,6 +270,7 @@ public class LinkLOZMovement : MonoBehaviour
     {
         if (_bomb == null)
         {
+            AudioManager.Instance.Play("BombThrow(LOZ)");
             _linkAnimator.SetBool("IsThrowing", true);
             StartCoroutine(MovementCooldown("IsThrowing", 0.12f));
             _bomb = Instantiate(_pfbBomb, GetObjectPosition(), Quaternion.identity);
@@ -273,6 +281,7 @@ public class LinkLOZMovement : MonoBehaviour
     {
         if (_boomerang == null)
         {
+            AudioManager.Instance.Play("Arrow-Boomerang(LOZ)");
             _linkAnimator.SetBool("IsThrowing", true);
             StartCoroutine(MovementCooldown("IsThrowing", 0.1f));
             _boomerang = Instantiate(_pfbBoomerang, GetObjectPosition(), GetObjectRotation());
@@ -340,7 +349,7 @@ public class LinkLOZMovement : MonoBehaviour
                 if (_linkUI.KeySystem.Keys != 0)
                 {
                     _linkUI.ShowPrompt(gameObject);
-                    if (Input.GetKeyDown(KeyCode.X))
+                    if (Input.GetButtonDown("A"))
                     {
                         _linkUI.HidePrompt();
                         _linkUI.KeySystem.UseKey();
@@ -375,7 +384,7 @@ public class LinkLOZMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Interactable"))
         {
-            if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetButtonDown("A"))
             {
                 Interact(other.gameObject);
             }
@@ -415,12 +424,19 @@ public class LinkLOZMovement : MonoBehaviour
 
     IEnumerator PickupAnimation(GameObject item)
     {
+        AudioManager.Instance.Play("PickupJingle(LOZ)");
+        AudioManager.Instance.PauseEverythingExpect("PickupJingle(LOZ)");
+        Time.timeScale = 0.0f;
+
         _linkAnimator.SetBool("IsPickingUp", true);
         _linkRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
-        while (!Input.GetKeyDown(KeyCode.A))
+        while (!Input.GetButtonDown("A"))
         {
             yield return null;
         }
+        AudioManager.Instance.ResumeEverything();
+        Time.timeScale = 1.0f;
+
         _invetory.Add(item.GetComponent<Item>().GetItemDescriptor());
         Destroy(item);
         _linkAnimator.SetBool("IsPickingUp", false);

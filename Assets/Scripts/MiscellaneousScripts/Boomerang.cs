@@ -8,11 +8,11 @@ public class Boomerang : MonoBehaviour
     private readonly int _throwSpeed = 40;
     private readonly int _returnSpeed = 8;
     private GameObject _target;
-    private Vector2 _direction;
     private bool _isReturning;
 
     void Start()
     {
+        AudioManager.Instance.Play("Boomerang(LOZ)");
         _boomerangRigidbody.AddForce(transform.right * _throwSpeed * 10);
         StartCoroutine(ReturnBoomerang());
     }
@@ -58,6 +58,7 @@ public class Boomerang : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            AudioManager.Instance.Stop("Boomerang(LOZ)");
             LinkLOZMovement link = other.gameObject.GetComponent<LinkLOZMovement>();
             link.CatchBoomerang(gameObject);
         }

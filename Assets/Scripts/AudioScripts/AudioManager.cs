@@ -19,25 +19,63 @@ class AudioManager : MonoBehaviour
             Instance = this;
         }
 
-        foreach (Sound s in _sounds)
+        foreach (Sound sound in _sounds)
         {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
+            sound.source = gameObject.AddComponent<AudioSource>();
+            sound.source.clip = sound.clip;
 
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
-            s.source.playOnAwake = s.playOnAwake;
-            if (s.source.playOnAwake)
+            sound.source.volume = sound.volume;
+            sound.source.pitch = sound.pitch;
+            sound.source.loop = sound.loop;
+            sound.source.playOnAwake = sound.playOnAwake;
+            if (sound.source.playOnAwake)
             {
-                s.source.Play();
+                sound.source.Play();
             }
         }
     }
 
     public void Play(string name)
     {
-        Sound s = Array.Find(_sounds, sound => sound.name == name);
-        s.source.Play();
+        Sound sound = Array.Find(_sounds, s => s.name == name);
+        sound.source.Play();
+    }
+
+    public void Stop(string name)
+    {
+        Sound sound = Array.Find(_sounds, s => s.name == name);
+        sound.source.Stop();
+    }
+
+    public void PauseEverythingExpect(string name)
+    {
+        for (int i = 0; i < _sounds.Length; i++)
+        {
+            if (!_sounds[i].name.Equals(name))
+            {
+                _sounds[i].source.Pause();
+            }
+        }
+    }
+
+    public void ResumeEverything()
+    {
+        for (int i = 0; i < _sounds.Length; i++)
+        {
+            _sounds[i].source.UnPause();
+        }
+    }
+
+    public bool IsPlaying(string name)
+    {
+        Sound sound = Array.Find(_sounds, s => s.name == name);
+        if (sound.source.isPlaying)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
