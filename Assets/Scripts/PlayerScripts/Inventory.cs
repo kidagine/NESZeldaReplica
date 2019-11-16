@@ -7,7 +7,6 @@ public class Inventory : MonoBehaviour
     [SerializeField] private ItemSlot _itemSlot = default;
     [SerializeField] private GameObject _itemsInventory = default;
     [SerializeField] private GameObject _sword = default;
-    [SerializeField] private GameObject _link = default;
     private List<ItemDescriptor> _items = new List<ItemDescriptor>();
     private InventorySlot[] _inventorySlots;
 
@@ -48,13 +47,22 @@ public class Inventory : MonoBehaviour
             UpdateInventoryUI(itemExists);
         }
         else
-                {
+        {
             if (item.isConsumamble)
             {
                 item.consumambleUses++;
             }
 
-            if (item.itemType != ItemType.Key)
+            if (item.itemType == ItemType.Rupee)
+            {
+                AudioManager.Instance.Play("PickupRupee(LOZ)");
+                _linkUI.RupeeSystem.SetRupees(1);
+            }
+            else if (item.itemType == ItemType.Key)
+            {
+                _linkUI.KeySystem.SetKeys(item.consumambleUses);
+            }
+            else
             {
                 bool itemExists = CheckItemExists(item);
                 if (!itemExists)
@@ -62,10 +70,6 @@ public class Inventory : MonoBehaviour
                     _items.Add(item);
                 }
                 UpdateInventoryUI(itemExists);
-            }
-            else
-            {
-                _linkUI.KeySystem.SetKeys(item.consumambleUses);
             }
         }
     }

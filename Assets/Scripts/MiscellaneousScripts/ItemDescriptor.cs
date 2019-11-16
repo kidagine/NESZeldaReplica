@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public enum ItemType { Bow, Bomb, Boomerang, PowerBracelet, Key, Sword, WhiteSword, MagicalSword, BlueRing, RedRing }
+public enum ItemType { Bow, Bomb, Boomerang, PowerBracelet, Key, Sword, WhiteSword, MagicalSword, BlueRing, RedRing, Heart, HeartContainer, Rupee }
 
 [CreateAssetMenu(fileName = "Item", menuName = "Inventory/Item")]
 public class ItemDescriptor : ScriptableObject
@@ -9,6 +9,7 @@ public class ItemDescriptor : ScriptableObject
     public ItemType itemType = default;
     public bool isConsumamble = default;
     public bool isPassive = default;
+    public bool hasImmidieteEffect = default;
     public int consumambleUses = default;
     public Sprite icon = default;
 }

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2462b120ccffe7141bc5b2c07391c047, type: 3}
+  m_Name: HeartContainer
+  m_EditorClassIdentifier: 
+  itemName: HeartContainer
+  itemType: 11
+  isConsumamble: 0
+  isPassive: 1
+  hasImmidieteEffect: 1
+  consumambleUses: 0
+  icon: {fileID: 21300000, guid: 741fac7a53bcd7d4d9915f57847ef88c, type: 3}

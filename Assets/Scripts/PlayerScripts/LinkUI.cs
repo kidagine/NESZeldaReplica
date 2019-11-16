@@ -6,6 +6,7 @@ public class LinkUI : MonoBehaviour
     [SerializeField] private Inventory _inventory = default;
     [SerializeField] private KeySystem _keySystem = default;
     [SerializeField] private HeartSystem _heartSystem = default;
+    [SerializeField] private RupeeSystem _rupeeSystem = default;
     [Header("Prefabs")]
     [SerializeField] private GameObject _pfbOpenPrompt = default;
     [Header("Canvas")]
@@ -17,6 +18,7 @@ public class LinkUI : MonoBehaviour
     public Inventory Inventory { get { return _inventory; } private set { _inventory = value; } }
     public KeySystem KeySystem { get { return _keySystem; } private set { _keySystem = value; } }
     public HeartSystem HeartSystem { get { return _heartSystem; } private set { _heartSystem = value; } }
+    public RupeeSystem RupeeSystem { get { return _rupeeSystem; } private set { _rupeeSystem = value; } }
 
     void Update()
     {

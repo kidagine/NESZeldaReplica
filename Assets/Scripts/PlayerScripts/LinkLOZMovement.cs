@@ -24,7 +24,7 @@ public class LinkLOZMovement : MonoBehaviour
     private Vector2 _lastDirection;
     private readonly int _moveSpeed = 5;
     private readonly int _knockbackForce = 10;
-    private readonly int _heartContainers = 3;
+    private int _heartContainers = 3;
     private int _currentHearts = 6;
     public bool _cantMove;
 
@@ -124,23 +124,6 @@ public class LinkLOZMovement : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         AudioManager.Instance.Play("SwordBeam(LOZ)");
         _swordBeam = Instantiate(_pfbSwordBeam, GetObjectPosition(), GetObjectRotation());
-    }
-
-    private void Heal()
-    {
-        if (_currentHearts < _heartContainers * 2)
-        {
-            AudioManager.Instance.Play("LinkDamaged(LOZ)");
-            _currentHearts++;
-            _linkUI.HeartSystem.SetHearts(_heartContainers, _currentHearts);
-        }
-        if (AudioManager.Instance.IsPlaying("LinkLowHealth(LOZ)"))
-        {
-            if (_currentHearts >= 2)
-            {
-                AudioManager.Instance.Stop("LinkLowHealth(LOZ)");
-            }
-        }
     }
 
     public void Damage(int attackDamage, GameObject attackObject)
@@ -301,18 +284,72 @@ public class LinkLOZMovement : MonoBehaviour
         obstacle.GetComponent<Pushable>().Push(gameObject);
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Pickable"))
+        {
+            ItemDescriptor itemDescriptor = other.gameObject.GetComponent<Item>().GetItemDescriptor();
+            if (itemDescriptor.isPassive)
+            {
+                StartCoroutine(HoldUpItem(other.gameObject));
+            }
+            else
+            {
+                AutomaticItemPickUp(other.gameObject);
+            }
+        }
+    }
+
     private void AutomaticItemPickUp(GameObject item)
     {
         ItemDescriptor itemDescriptor = item.GetComponent<Item>().GetItemDescriptor();
-        if (itemDescriptor.isPassive)
+        if (itemDescriptor.hasImmidieteEffect)
         {
-            StartCoroutine(PickupAnimation(item));
+            switch (itemDescriptor.itemType)
+            {
+                case ItemType.Heart:
+                    Heal();
+                    break;
+                case ItemType.HeartContainer:
+                    SetHeartContainers();
+                    break;
+            }
         }
         else
         {
             _invetory.Add(itemDescriptor);
-            Destroy(item.gameObject);
         }
+        Destroy(item);
+    }
+
+    private void Heal()
+    {
+        if (_currentHearts < _heartContainers * 2)
+        {
+            AudioManager.Instance.Play("PickupHeart(LOZ)");
+            if (_currentHearts % 2 == 0)
+            {
+                _currentHearts += 2;
+            }
+            else
+            {
+                _currentHearts++;
+            }
+            _linkUI.HeartSystem.SetHearts(_heartContainers, _currentHearts);
+        }
+        if (AudioManager.Instance.IsPlaying("LinkLowHealth(LOZ)"))
+        {
+            if (_currentHearts >= 2)
+            {
+                AudioManager.Instance.Stop("LinkLowHealth(LOZ)");
+            }
+        }
+    }
+
+    public void SetHeartContainers()
+    {
+        _heartContainers++;
+        _linkUI.HeartSystem.SetHearts(_heartContainers, _currentHearts);
     }
 
     private void Interact(GameObject interactableObject)
@@ -372,14 +409,6 @@ public class LinkLOZMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Pickable"))
-        {
-            AutomaticItemPickUp(other.gameObject);
-        }
-    }
-
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Interactable"))
@@ -422,11 +451,12 @@ public class LinkLOZMovement : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator PickupAnimation(GameObject item)
+    IEnumerator HoldUpItem(GameObject item)
     {
         AudioManager.Instance.Play("PickupJingle(LOZ)");
         AudioManager.Instance.PauseEverythingExpect("PickupJingle(LOZ)");
         Time.timeScale = 0.0f;
+        item.transform.position = new Vector2(transform.position.x, transform.position.y + 0.75f);
 
         _linkAnimator.SetBool("IsPickingUp", true);
         _linkRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -437,12 +467,10 @@ public class LinkLOZMovement : MonoBehaviour
         AudioManager.Instance.ResumeEverything();
         Time.timeScale = 1.0f;
 
-        _invetory.Add(item.GetComponent<Item>().GetItemDescriptor());
-        Destroy(item);
         _linkAnimator.SetBool("IsPickingUp", false);
         _linkRigidbody.constraints = RigidbodyConstraints2D.None;
         _linkRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-        yield return null;
+        AutomaticItemPickUp(item);
     }
 
     private Vector2 GetObjectPosition()
