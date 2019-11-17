@@ -3,9 +3,9 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
 {
-    [SerializeField] private ItemSlot _itemSlot = default;
-    [SerializeField] private Text _itemCounter = default;
     [SerializeField] private Image _itemIcon = default;
+    [SerializeField] private Text _itemCounter = default;
+    [SerializeField] private ItemSlot _itemSlot = default;
     private ItemDescriptor _item;
 
 

@@ -1,20 +1,20 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.EventSystems;
-using TMPro;
 using UnityEngine.SceneManagement;
-using System.Collections;
+using TMPro;
 
 public class StartMenuSceneHandler : MonoBehaviour
 {
     [SerializeField] private Animator _fadeInOutAnimator = default;
     [SerializeField] private Animator _pressStartAnimator = default;
     [SerializeField] private GameObject _pressStart = default;
-    [SerializeField] private GameObject _modeSelection = default;
     [SerializeField] private GameObject _makeSelect = default;
+    [SerializeField] private GameObject _modeSelection = default;
     [SerializeField] private TextMeshProUGUI _pressStartText = default;
     private int _state;
-    private bool _hasPressedStart;
     private bool _checkInput;
+    private bool _hasPressedStart;
 
 
     void Awake()

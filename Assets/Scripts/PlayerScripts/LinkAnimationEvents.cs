@@ -4,14 +4,19 @@ using UnityEngine.SceneManagement;
 
 public class LinkAnimationEvents : MonoBehaviour
 {
-    [SerializeField] private LinkLOZMovement _linkMovement = default;
-    [SerializeField] private Animator _fadeInOutAnimator = default;
     [SerializeField] private Animator _linkAnimator = default;
+    [SerializeField] private Animator _fadeInOutAnimator = default;
+    private GameObject _link;
 
+
+    void Awake()
+    {
+        _link = transform.parent.gameObject;    
+    }
 
     public void WalkToRoom(Vector2 playerDirection)
     {
-        _linkMovement._cantMove =  true;
+        _link.GetComponent<LinkLOZ>().CantMove = true;
         _linkAnimator.speed = 1;
         _linkAnimator.SetFloat("Horizontal", playerDirection.x);
         _linkAnimator.SetFloat("Vertical", playerDirection.y);
@@ -20,9 +25,8 @@ public class LinkAnimationEvents : MonoBehaviour
 
     public void ResetMovement()
     {
-        _linkMovement._cantMove = false;
-        GameObject player = _linkMovement.REMOVETHIS();
-        player.transform.position = gameObject.transform.position;
+        _link.GetComponent<LinkLOZ>().CantMove = false;
+        _link.transform.position = gameObject.transform.position;
     }
 
     public void RestartEvent()

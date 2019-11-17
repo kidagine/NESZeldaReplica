@@ -4,11 +4,13 @@ using UnityEngine.UI;
 public class KeySystem : MonoBehaviour
 {
     [SerializeField] private Image[] _keys = default;
+
+
     public int Keys { get; set; }
 
-    public void SetKeys(int keyAmount)
+    public void SetKeys(int currentKeys)
     {
-        Keys = keyAmount;
+        Keys = currentKeys;
         for (int i = 0; i < _keys.Length; i++)
         {
             if (i < Keys)
@@ -27,5 +29,4 @@ public class KeySystem : MonoBehaviour
         Keys--;
         SetKeys(Keys);
     }
-
 }

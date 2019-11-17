@@ -6,5 +6,5 @@ public interface IInteractable
 {
     void Interact();
     InteractableType GetInteractableType();
-    GameObject getObject();
+    GameObject GetObject();
 }

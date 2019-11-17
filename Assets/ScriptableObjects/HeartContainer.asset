@@ -15,7 +15,8 @@ MonoBehaviour:
   itemName: HeartContainer
   itemType: 11
   isConsumamble: 0
-  isPassive: 1
+  isPassive: 0
+  isImportant: 1
   hasImmidieteEffect: 1
   consumambleUses: 0
   icon: {fileID: 21300000, guid: 741fac7a53bcd7d4d9915f57847ef88c, type: 3}

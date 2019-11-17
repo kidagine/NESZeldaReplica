@@ -3,12 +3,17 @@ using UnityEngine;
 
 class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance { get; private set; }
-
     [SerializeField] private Sound[] _sounds = default;
 
+    public static AudioManager Instance { get; private set; }
 
     void Awake()
+    {
+        CheckInstance();
+        SetSounds();
+    }
+
+    private void CheckInstance()
     {
         if (Instance != null && Instance != this)
         {
@@ -18,7 +23,10 @@ class AudioManager : MonoBehaviour
         {
             Instance = this;
         }
+    }
 
+    private void SetSounds()
+    {
         foreach (Sound sound in _sounds)
         {
             sound.source = gameObject.AddComponent<AudioSource>();

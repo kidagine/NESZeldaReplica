@@ -7,7 +7,8 @@ public class Pushable : MonoBehaviour
     private enum PushableSide { Top, Bottom, Left, Right }
     [SerializeField] private PushableSide _pushable = default;
     [SerializeField] private GameObject _linkedObject = default;
-    private bool pushedObject;
+    private bool _hasPushedObject;
+
 
     public void Push(GameObject player)
     {
@@ -53,7 +54,7 @@ public class Pushable : MonoBehaviour
         float ratio = 0.0f;
         Vector2 originalPosition = transform.position;
         Vector3 targetPosition = originalPosition + pushDirection;
-        while (!pushedObject)
+        while (!_hasPushedObject)
         {
             if (ratio <= 1.0f)
             {
@@ -68,7 +69,7 @@ public class Pushable : MonoBehaviour
                     IInteractable interactable = _linkedObject.GetComponent<IInteractable>();
                     interactable.Interact();
                 }
-                pushedObject = true;
+                _hasPushedObject = true;
                 yield return null;
             }
         }

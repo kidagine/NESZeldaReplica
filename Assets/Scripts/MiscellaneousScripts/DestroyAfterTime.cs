@@ -2,10 +2,10 @@
 
 public class DestroyAfterTime : MonoBehaviour
 {
-    [SerializeField] private float timeToDestroy = default; 
+    [SerializeField] private float _timeToDestroy = default; 
 
     void Start()
     {
-        Destroy(gameObject, timeToDestroy);
+        Destroy(gameObject, _timeToDestroy);
     }
 }

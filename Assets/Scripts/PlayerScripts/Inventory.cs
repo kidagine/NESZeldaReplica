@@ -3,11 +3,10 @@ using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private LinkUI _linkUI = default;
     [SerializeField] private ItemSlot _itemSlot = default;
     [SerializeField] private GameObject _itemsInventory = default;
     [SerializeField] private GameObject _sword = default;
-    private List<ItemDescriptor> _items = new List<ItemDescriptor>();
+    private readonly List<ItemDescriptor> _items = new List<ItemDescriptor>();
     private InventorySlot[] _inventorySlots;
 
 
@@ -18,33 +17,36 @@ public class Inventory : MonoBehaviour
 
     public void Add(ItemDescriptor item)
     {
-        if (item.itemType == ItemType.WhiteSword || item.itemType == ItemType.MagicalSword)
+        if (item.isPassive)
         {
-            SpriteRenderer swordSpriteRenderer = _sword.GetComponent<SpriteRenderer>();
-            swordSpriteRenderer.sprite = item.icon;
-            bool itemExists = CheckItemExists(item);
-            if (!itemExists)
+            if (item.itemType == ItemType.WhiteSword || item.itemType == ItemType.MagicalSword)
             {
-                _items.Add(item);
+                SpriteRenderer swordSpriteRenderer = _sword.GetComponent<SpriteRenderer>();
+                swordSpriteRenderer.sprite = item.icon;
+                bool itemExists = CheckItemExists(item);
+                if (!itemExists)
+                {
+                    _items.Add(item);
+                }
+                UpdateInventoryUI(itemExists);
             }
-            UpdateInventoryUI(itemExists);
-        }
-        else if (item.itemType == ItemType.BlueRing || item.itemType == ItemType.RedRing)
-        {
-            if (item.itemType == ItemType.RedRing)
+            else if (item.itemType == ItemType.BlueRing || item.itemType == ItemType.RedRing)
             {
-                Camera.main.GetComponent<LinkPaletteSwap>().SetArmor(ArmorType.Red);
+                if (item.itemType == ItemType.RedRing)
+                {
+                    Camera.main.GetComponent<LinkPaletteSwap>().SetArmor(ArmorType.Red);
+                }
+                else if (!CheckPassiveItem(ItemType.RedRing))
+                {
+                    Camera.main.GetComponent<LinkPaletteSwap>().SetArmor(ArmorType.Blue);
+                }
+                bool itemExists = CheckItemExists(item);
+                if (!itemExists)
+                {
+                    _items.Add(item);
+                }
+                UpdateInventoryUI(itemExists);
             }
-            else if (!CheckPassiveItem(ItemType.RedRing))
-            {
-                Camera.main.GetComponent<LinkPaletteSwap>().SetArmor(ArmorType.Blue);
-            }
-            bool itemExists = CheckItemExists(item);
-            if (!itemExists)
-            {
-                _items.Add(item);
-            }
-            UpdateInventoryUI(itemExists);
         }
         else
         {
@@ -53,15 +55,6 @@ public class Inventory : MonoBehaviour
                 item.consumambleUses++;
             }
 
-            if (item.itemType == ItemType.Rupee)
-            {
-                AudioManager.Instance.Play("PickupRupee(LOZ)");
-                _linkUI.RupeeSystem.SetRupees(1);
-            }
-            else if (item.itemType == ItemType.Key)
-            {
-                _linkUI.KeySystem.SetKeys(item.consumambleUses);
-            }
             else
             {
                 bool itemExists = CheckItemExists(item);

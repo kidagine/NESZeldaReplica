@@ -8,6 +8,7 @@ public class HeartSystem : MonoBehaviour
     [SerializeField] private Sprite _halfHeart = default;
     [SerializeField] private Sprite _emptyHeart = default;
 
+
     public void SetHearts(int heartContainers, int currentHearts)
     {
         for (int i = 0; i < _hearts.Length; i++)

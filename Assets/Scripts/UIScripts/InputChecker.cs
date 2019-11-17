@@ -50,12 +50,10 @@ public class InputChecker : MonoBehaviour
 
     private bool IsMouseKeyboard()
     {
-        // mouse & keyboard buttons
         if (Event.current.isKey || Event.current.isMouse || Input.GetAxis("Mouse ScrollWheel") != 0.0f)
         {
             return true;
         }
-        // mouse movement
         if (Input.GetAxis("Mouse X") != 0.0f ||
             Input.GetAxis("Mouse Y") != 0.0f)
         {
@@ -66,7 +64,6 @@ public class InputChecker : MonoBehaviour
 
     private bool IsControlerInput()
     {
-        // joystick buttons
         if (Input.GetKey(KeyCode.Joystick1Button0) ||
            Input.GetKey(KeyCode.Joystick1Button1) ||
            Input.GetKey(KeyCode.Joystick1Button2) ||
@@ -91,7 +88,6 @@ public class InputChecker : MonoBehaviour
             return true;
         }
 
-        // joystick axis
         if (Input.GetAxis("Left Stick X") != 0.0f || Input.GetAxis("Left Stick Y") != 0.0f ||
             Input.GetAxis("Right Stick X") != 0.0f || Input.GetAxis("Right Stick Y") != 0.0f ||
             Input.GetAxis("Left Trigger") != 0.0f || Input.GetAxis("Right Trigger") != 0.0f ||

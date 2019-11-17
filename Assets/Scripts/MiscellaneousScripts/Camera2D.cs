@@ -6,9 +6,15 @@ public class Camera2D : MonoBehaviour
 {
     public static Camera2D Instance { get; private set; }
     private Room _currentRoom;
-    public GameObject test;
+
 
     void Awake()
+    {
+        CheckInstance();
+        PositionToPlayer();
+    }
+
+    private void CheckInstance()
     {
         if (Instance != null && Instance != this)
         {
@@ -18,7 +24,12 @@ public class Camera2D : MonoBehaviour
         {
             Instance = this;
         }
-        transform.position = new Vector3(test.transform.position.x, test.transform.position.y, transform.position.z);
+    }
+
+    private void PositionToPlayer()
+    {
+        GameObject link = GameObject.FindGameObjectWithTag("Player");
+        transform.position = new Vector3(link.transform.position.x, link.transform.position.y, transform.position.z);
     }
 
     public void SetCurrentRoom(Room currentRoom)
@@ -33,6 +44,7 @@ public class Camera2D : MonoBehaviour
 
     IEnumerator RoomTransitionTimer(DoorPosition doorPosition, GameObject player)
     {
+        yield return new WaitForSeconds(0.5f);
         bool hasTransitioned = false;
         float ratio = 0.0f;
         Vector3 startingPosition = transform.position;

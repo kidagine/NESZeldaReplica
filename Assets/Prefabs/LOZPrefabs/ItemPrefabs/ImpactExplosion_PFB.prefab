@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8186678629676211963}
   - component: {fileID: 6455269042856578932}
   m_Layer: 0
-  m_Name: ArrowExplosion_PFB
+  m_Name: ImpactExplosion_PFB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,4 +93,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7be14166c8ae20647a3f5f1d73e2d078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDestroy: 0.05
+  _timeToDestroy: 0.05

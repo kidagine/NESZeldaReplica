@@ -6,25 +6,19 @@ public enum ArmorType { Blue, Red }
 [ExecuteInEditMode]
 public class LinkPaletteSwap : MonoBehaviour
 {
-	[SerializeField] private Color _armorColorIn;
-    [SerializeField] private Color _armorColorOut;
-    [SerializeField] private Color _hairColorIn;
-    [SerializeField] private Color _hairColorOut;
-    [SerializeField] private Color _skinColorIn;
-    [SerializeField] private Color _skinColorOut;
-
+    [SerializeField] private Color _armorColorIn = default;
+    [SerializeField] private Color _armorColorOut = default;
+    [SerializeField] private Color _hairColorIn = default;
+    [SerializeField] private Color _hairColorOut = default;
+    [SerializeField] private Color _skinColorIn = default;
+    [SerializeField] private Color _skinColorOut = default;
+    private GameObject _link;
+    private Material _linkMaterial;
     private readonly string _defaultArmorColor = "#80d010";
     private readonly string _defaultHairColor = "#c84c0c";
     private readonly string _defaultSkinColor = "#fc9838";
     private int _blinkingLoops = 5;
-    Material _linkMaterial;
 
-    //void Start()
-    //{
-    //    ColorUtility.TryParseHtmlString(_defaultArmorColor, out _armorColorIn);
-    //    ColorUtility.TryParseHtmlString(_defaultHairColor, out _hairColorIn);
-    //    ColorUtility.TryParseHtmlString(_defaultSkinColor, out _skinColorIn);
-    //}
 
     void OnEnable()
 	{
@@ -57,8 +51,9 @@ public class LinkPaletteSwap : MonoBehaviour
         }
     }
 
-    public void StartBlinking()
+    public void StartBlinking(GameObject link)
     {
+        _link = link;
         StartCoroutine(Blinking());
     }
 
@@ -87,6 +82,7 @@ public class LinkPaletteSwap : MonoBehaviour
         }
         else
         {
+            _link.GetComponent<LinkLOZ>().SetInvisibility(false);
             _blinkingLoops = 5;
         }
     }
