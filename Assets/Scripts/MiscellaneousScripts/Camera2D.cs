@@ -29,7 +29,7 @@ public class Camera2D : MonoBehaviour
     private void PositionToPlayer()
     {
         GameObject link = GameObject.FindGameObjectWithTag("Player");
-        transform.position = new Vector3(link.transform.position.x, link.transform.position.y, transform.position.z);
+        transform.position = new Vector3(link.transform.position.x, link.transform.position.y + 1.1f, transform.position.z);
     }
 
     public void SetCurrentRoom(Room currentRoom)

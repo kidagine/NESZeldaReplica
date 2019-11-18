@@ -7,10 +7,82 @@ public class StalfosLOZ : MonoBehaviour, IEnemy
     [SerializeField] private GameObject _pfbEnemyExplosion = default;
     [SerializeField] private GameObject _pfbEnemySpawnExplosion = default;
     [SerializeField] private Rigidbody2D _stalfosRigidbody = default;
+    private Vector2 _direction;
+    private readonly int _moveSpeed = 3;
     private readonly int _attackDamage = 1;
     private readonly int _knockbackForce = 10;
     private int _health = 2;
+    private float _randomWaitTime;
 
+
+    void Start()
+    {
+        _direction = GetRandomDirection();
+        MoveToDirection();
+        StartCoroutine(ChooseRandomDirection());
+    }
+
+    IEnumerator ChooseRandomDirection()
+    {
+        _randomWaitTime = UnityEngine.Random.Range(0.4f, 1.3f);
+        yield return new WaitForSeconds(_randomWaitTime);
+        _direction = GetRandomDirection();
+        MoveToDirection();
+        StartCoroutine(ChooseRandomDirection());
+    }
+
+    private Vector2 GetRandomDirection()
+    {
+        int randomDirectionNumber = UnityEngine.Random.Range(1, 5);
+        Vector2 randomDirection;
+        switch (randomDirectionNumber)
+        {
+            case 1:
+                randomDirection = new Vector2(1.0f, 0.0f);
+                break;
+            case 2:
+                randomDirection = new Vector2(-1.0f, 0.0f);
+                break;
+            case 3:
+                randomDirection = new Vector2(0.0f, 1.0f);
+                break;
+            case 4:
+                randomDirection = new Vector2(0.0f, -1.0f);
+                break;
+            default:
+                randomDirection = Vector2.zero;
+                break;
+        }
+        if (randomDirection != _direction)
+        {
+            return randomDirection;
+        }
+        else
+        {
+            return GetRandomDirection();
+        }
+    }
+
+    private void MoveToDirection()
+    {
+        _stalfosRigidbody.velocity = _direction * _moveSpeed;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            LinkLOZ link = other.gameObject.GetComponent<LinkLOZ>();
+            link.Damage(_attackDamage, gameObject);
+        }
+        else
+        {
+            //Debug.Log("enter");
+            //_randomWaitTime = UnityEngine.Random.Range(1.0f, 1.3f);
+            //_direction = GetRandomDirection();
+            //MoveToDirection();
+        }
+    }
 
     public void Damage(GameObject player, int attackDamage)
     {
@@ -73,14 +145,5 @@ public class StalfosLOZ : MonoBehaviour, IEnemy
     public void Hide()
     {
         GetComponent<SpriteRenderer>().enabled = false;
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            LinkLOZ link = other.gameObject.GetComponent<LinkLOZ>();
-            link.Damage(_attackDamage, gameObject);
-        }
     }
 }
