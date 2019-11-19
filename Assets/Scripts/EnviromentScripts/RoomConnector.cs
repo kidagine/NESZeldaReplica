@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class RoomConnector : MonoBehaviour
 {
-    [SerializeField] private Room _room = default;
     private readonly List<GameObject> _doors = new List<GameObject>();
-
+    private Room _enteredRoom;
 
     void Start()
     {
@@ -27,16 +26,22 @@ public class RoomConnector : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GameObject enteredDoor = GetEnteredDoor(other.gameObject);
+            if (_enteredRoom != null)
+            {
+                List<GameObject> enemies = _enteredRoom.GetEnemies();
+                foreach (GameObject enemy in enemies)
+                {
+                    enemy.GetComponent<IEnemy>().Hide();
+                }
+            }
 
-            Camera2D.Instance.SetCurrentRoom(_room);
+            GameObject enteredDoor = GetEnteredDoor(other.gameObject);
+            _enteredRoom = enteredDoor.GetComponent<Door>().ConnectedRoom;
+
+            Camera2D.Instance.SetCurrentRoom(_enteredRoom);
             other.gameObject.transform.position = enteredDoor.transform.position;
             other.gameObject.SetActive(false);
-            List<GameObject> enemies = _room.GetEnemies();
-            foreach (GameObject enemy in enemies)
-            {
-                enemy.GetComponent<IEnemy>().Hide();
-            }
+ 
 
             Camera2D.Instance.RoomTransition(enteredDoor.GetComponent<Door>().DoorPosition, other.gameObject);
         }

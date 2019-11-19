@@ -7,20 +7,20 @@ public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField] private DoorStatus _doorStatus = default;
     [SerializeField] private Sprite _openDoor = default;
-    [SerializeField] private Sprite _closedDoor = default;
     [SerializeField] private SpriteRenderer _door = default;
     [SerializeField] private BoxCollider2D _doorCollider = default;
     private GameObject _connectedDoor;
 
     public DoorStatus DoorStatus { get { return _doorStatus; } private set { _doorStatus = value; } }
     public DoorPosition DoorPosition { get; private set; }
+    public Room ConnectedRoom { get; set; }
 
 
     void Start()
     {
         if (_doorStatus == DoorStatus.Open)
         {
-            _doorCollider.enabled = false;
+            _doorCollider.isTrigger = true;
         }
         GetDoorPosition();
     }

@@ -47,14 +47,6 @@ public class Inventory : MonoBehaviour
                 }
                 UpdateInventoryUI(itemExists);
             }
-        }
-        else
-        {
-            if (item.isConsumamble)
-            {
-                item.consumambleUses++;
-            }
-
             else
             {
                 bool itemExists = CheckItemExists(item);
@@ -64,6 +56,21 @@ public class Inventory : MonoBehaviour
                 }
                 UpdateInventoryUI(itemExists);
             }
+        }
+        else
+        {
+            if (item.isConsumamble)
+            {
+                item.consumambleUses++;
+            }
+
+
+            bool itemExists = CheckItemExists(item);
+            if (!itemExists)
+            {
+                _items.Add(item);
+            }
+            UpdateInventoryUI(itemExists);
         }
     }
 

@@ -9,17 +9,22 @@ public class Room : MonoBehaviour
     void Start()
     {
         _roomCollider = GetComponent<BoxCollider2D>();
+        GetEnemies();
     }
 
     public List<GameObject> GetEnemies()
     {
         List<GameObject> enemiesToReturn = new List<GameObject>();
-        Collider2D[] enemies = Physics2D.OverlapBoxAll(transform.position, new Vector2(_roomCollider.size.x, _roomCollider.size.y), 0);
-        foreach  (Collider2D enemy in enemies)
+        Collider2D[] objectsInRoom = Physics2D.OverlapBoxAll(transform.position, new Vector2(_roomCollider.size.x, _roomCollider.size.y), 0);
+        foreach  (Collider2D objectInRoom in objectsInRoom)
         {
-            if (enemy.gameObject.CompareTag("Enemy"))
+            if (objectInRoom.gameObject.CompareTag("Enemy"))
             {
-                enemiesToReturn.Add(enemy.gameObject);
+                enemiesToReturn.Add(objectInRoom.gameObject);
+            }
+            else if (objectInRoom.gameObject.CompareTag("Door"))
+            {
+                objectInRoom.GetComponent<Door>().ConnectedRoom = this;
             }
         }
         return enemiesToReturn;
