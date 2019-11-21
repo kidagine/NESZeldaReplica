@@ -652,7 +652,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Zelda Maker
+  m_Text: Zelda (NES)
 --- !u!222 &245415013
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1794,8 +1794,8 @@ MonoBehaviour:
   _fadeInOutAnimator: {fileID: 2100599798}
   _pressStartAnimator: {fileID: 113780708}
   _pressStart: {fileID: 113780706}
-  _modeSelection: {fileID: 1913894520}
   _makeSelect: {fileID: 132755952}
+  _modeSelection: {fileID: 1913894520}
   _pressStartText: {fileID: 1703050254}
 --- !u!114 &1915705763
 MonoBehaviour:

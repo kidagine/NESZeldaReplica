@@ -9,23 +9,21 @@ public class StalfosLOZ : MonoBehaviour, IEnemy
     [SerializeField] private Rigidbody2D _stalfosRigidbody = default;
     private Vector2 _direction;
     private Vector2 _initialPosition;
-    private Vector2 _tempPosition;
+    //private Vector2 _tempPosition;
     private readonly int _moveSpeed = 2;
     private readonly int _attackDamage = 1;
     private readonly int _knockbackForce = 10;
     private int _health = 2;
-    private float _randomWaitTime;
     private bool _cantMove;
-    private bool _hasCollided = false;
+    //private bool _hasCollided = false;
 
 
     void Start()
     {
         _initialPosition = transform.position;
-        //Hide();
+        Hide();
         _direction = GetRandomDirection();
         int randomStepsUntilChange = UnityEngine.Random.Range(5, 10);
-        //StartCoroutine(ChooseRandomDirection(randomStepsUntilChange));
     }
 
     void Update()
@@ -48,38 +46,38 @@ public class StalfosLOZ : MonoBehaviour, IEnemy
         }
     }
 
-    IEnumerator ChooseRandomDirection(int randomStepsUntilChange)
-    {
-        //float ratio = 0.0f;
-        //_tempPosition = transform.position;
-        //if (randomStepsUntilChange != 0)
-        //{
-        //    while (ratio < 1.1f)
-        //    {
-        //        if (_hasCollided)
-        //        {
-        //            _direction = GetRandomDirection();
-        //            randomStepsUntilChange = UnityEngine.Random.Range(5, 10);
-        //            StartCoroutine(ChooseRandomDirection(randomStepsUntilChange));
-        //            _hasCollided = false;
-        //            Debug.Log("STOP");
-        //            yield break;
-        //        }
-        //        transform.position = Vector2.Lerp(_tempPosition, new Vector2(_tempPosition.x + _direction.x, _tempPosition.y + _direction.y), ratio);
-        //        ratio += 0.05f;
-        //        yield return null;
-        //    }
-        //    randomStepsUntilChange--;
-        //    StartCoroutine(ChooseRandomDirection(randomStepsUntilChange));
-        //}
-        //else
-        //{
-        //    _direction = GetRandomDirection();
-        //    randomStepsUntilChange = UnityEngine.Random.Range(5, 10);
-        //    StartCoroutine(ChooseRandomDirection(randomStepsUntilChange));
-        //}
-        yield return null;
-    }
+    //IEnumerator ChooseRandomDirection(int randomStepsUntilChange)
+    //{
+    //    float ratio = 0.0f;
+    //    _tempPosition = transform.position;
+    //    if (randomStepsUntilChange != 0)
+    //    {
+    //        while (ratio < 1.1f)
+    //        {
+    //            if (_hasCollided)
+    //            {
+    //                _direction = GetRandomDirection();
+    //                randomStepsUntilChange = UnityEngine.Random.Range(5, 10);
+    //                StartCoroutine(ChooseRandomDirection(randomStepsUntilChange));
+    //                _hasCollided = false;
+    //                Debug.Log("STOP");
+    //                yield break;
+    //            }
+    //            transform.position = Vector2.Lerp(_tempPosition, new Vector2(_tempPosition.x + _direction.x, _tempPosition.y + _direction.y), ratio);
+    //            ratio += 0.05f;
+    //            yield return null;
+    //        }
+    //        randomStepsUntilChange--;
+    //        StartCoroutine(ChooseRandomDirection(randomStepsUntilChange));
+    //    }
+    //    else
+    //    {
+    //        _direction = GetRandomDirection();
+    //        randomStepsUntilChange = UnityEngine.Random.Range(5, 10);
+    //        StartCoroutine(ChooseRandomDirection(randomStepsUntilChange));
+    //    }
+    //    yield return null;
+    //}
 
     private Vector2 GetRandomDirection()
     {
