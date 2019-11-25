@@ -1,4 +1,4 @@
-# ZeldaMaker
+# NES Zelda Replica
 
 ![NES Zelda Replica](https://i.imgur.com/0KDGc0S.png)
 
